@@ -1,0 +1,7 @@
+coverage/*
+config/*
+scripts/*
+node_modules/*
+build/*
+demo/*
+public/*
