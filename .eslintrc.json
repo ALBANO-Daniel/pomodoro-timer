@@ -1,17 +1,25 @@
 {
-  "extends": ["react-app", "eslint:recommended", "plugin:cypress/recommended", "prettier"],
-  "plugins": ["cypress"],
-  "settings": {
-    "react": {
-      "version": "16.8.6"
-    }
+  // "extends": "airbnb",
+  // "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react/jsx-runtime"],
+  // "plugins": ["react"],
+  // "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
   },
   "parserOptions": {
+    "parser": "@babel/eslint-parser",
+    "requireConfigFile": false,
+    "ecmaVersion": "latest",
+    "sourceType": "module",
     "ecmaFeatures": {
+      "jsx": true,
       "legacyDecorators": true
     }
   },
   "rules": {
+    "react/prop-types": 0,
     "indent": [
       2,
       2,
@@ -19,7 +27,6 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": ["error", "windows"],
     "quotes": [
       "error",
       "single",
@@ -30,13 +37,13 @@
     "semi": ["error", "never"],
     "comma-dangle": ["error", "always-multiline"],
     "no-useless-escape": "off",
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "warn",
-      {
-        "aspects": ["invalidHref"]
-      }
-    ],
+    // "jsx-a11y/href-no-hash": "off",
+    // "jsx-a11y/anchor-is-valid": [
+    //   "warn",
+    //   {
+    //     "aspects": ["invalidHref"]
+    //   }
+    // ],
     "object-curly-spacing": ["error", "always"],
     "cypress/no-unnecessary-waiting": "off",
     "no-console": "off",

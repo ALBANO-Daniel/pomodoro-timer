@@ -1,10 +1,9 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import { Route, Routes } from 'react-router-dom'
-import { ColorModeContext, useMode } from './theme'
-import React from 'react'
-import Topbar from './components/Topbar'
-import Pomodoro from './components/Pomodoro'
+// import { Route, Routes } from 'react-router-dom'
+// import { Switch, Redirect } from 'react-router'
 import PomodoroProvider from './components/PomodoroProvider'
+import Topbar from './components/Topbar'
+import { ColorModeContext, useMode } from './theme'
 
 function App() {
   const [theme, colorMode] = useMode()
@@ -16,16 +15,14 @@ function App() {
         <div className="app">
           <Topbar />
           <main className="content">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PomodoroProvider>
-                    <Pomodoro />
-                  </PomodoroProvider>
-                }
-              />
-            </Routes>
+            <PomodoroProvider />
+            {/* <Routes> */}
+            {/* <Route path="/" element={<PomodoroProvider />} /> */}
+            {/* <Switch>
+                <Route path="/" element={<div>bbb</div>} />
+                <Redirect to={'/'} />
+              </Switch> */}
+            {/* </Routes> */}
           </main>
         </div>
       </ThemeProvider>

@@ -1,10 +1,9 @@
-import React from 'react'
 import PomodoroForm from '../components/PomodoroForm'
 import { AllStagesFinishedAlert } from './AllStagesFinishedAlert'
 import { MainAppContainer } from './MainAppContainer'
 import { StageProgressIndicator } from './StageProgressIndicator'
 
-export default function Pomodoro(props) {
+export function PomodoroView(props) {
   const {
     setAreAllStagesFinished,
     setShouldShowTimer,
@@ -12,10 +11,9 @@ export default function Pomodoro(props) {
     shouldShowTimer,
     isStageFinished,
     areAllStagesFinished,
-    stageCurrentIndex,
-    time,
+    currentStageIndex,
+    expirationTimestampForCurrentStage,
   } = props
-
   return (
     <MainAppContainer>
       <PomodoroForm
@@ -30,7 +28,11 @@ export default function Pomodoro(props) {
         />
       )}
       {shouldShowTimer && !areAllStagesFinished && (
-        <StageProgressIndicator isStageFinished={isStageFinished} stageCurrentIndex={stageCurrentIndex} time={time} />
+        <StageProgressIndicator
+          isStageFinished={isStageFinished}
+          currentStageIndex={currentStageIndex}
+          expirationTimestampForCurrentStage={expirationTimestampForCurrentStage}
+        />
       )}
     </MainAppContainer>
   )

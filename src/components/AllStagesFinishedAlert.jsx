@@ -1,11 +1,7 @@
-import React from 'react'
-
-// import alarmSound from "../sounds/default.m4a";
-
 import { Alert } from '@mui/material'
 import { Box } from '@mui/system'
 
-export default function AllStagesFinishedAlert(props) {
+export function AllStagesFinishedAlert(props) {
   const { setAreAllStagesFinished, setShouldShowTimer } = props
 
   return (

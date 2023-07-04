@@ -1,83 +1,72 @@
-import { useState } from 'react'
 import React from 'react'
-import PomodoroTimer from '../components/PomodoroTimer'
-import PomodoroForm from '../components/PomodoroForm'
-
-// import alarmSound from "../sounds/default.m4a";
 import alarmSound from '../sounds/windowsXP.opus'
-
-import { theme } from '../theme.js'
-import { Alert, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-import PomodoroChips from '../components/PomodoroChips'
-import { ThemeProvider } from '@emotion/react'
+import { PomodoroView } from './PomodoroView'
+import { getStagesInSeconds } from './getStages'
 
 export default class PomodoroProvider extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
       timerSettings: null,
       shouldShowTimer: false,
       isStageFinished: false,
-      stageCurrentIndex: 0,
+      currentStageIndex: 0,
       areAllStagesFinished: false,
+      currentStageExpiresIn: new Date(),
     }
   }
 
   handleTimerSettings = (timerSettings) => {
-    setTimerSettings(timerSettings)
-    setStageCurrentIndex(0)
-    setShouldShowTimer(!shouldShowTimer)
-    setIsStageFinished(false)
+    this.setState({
+      timerSettings,
+      currentStageIndex: 0,
+      shouldShowTimer: !this.state.shouldShowTimer,
+      isStageFinished: false,
+    })
   }
-  
+
   handleSubmit = (event) => {
     event.preventDefault()
-    const form = e.target
+    const form = event.target
     const formData = new FormData(form)
     const formJson = Object.fromEntries(formData.entries())
-    handleTimerSettings(formJson)
+    this.handleTimerSettings(formJson)
   }
 
-  // const [timerSettings, setTimerSettings] = useState('')
-  // const [shouldShowTimer, setShouldShowTimer] = useState(false)
-  // const [isStageFinished, setIsStageFinished] = useState(false)
-  // const [index, setStageCurrentIndex] = useState(0)
-  // const [reset, setAreAllStagesFinished] = useState(false)
+  get currentStageInSeconds() {
+    const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
+    const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
+    return pomodoroStagesInSeconds[this.state.currentStageExpiresIn]
+  }
 
-  // const { workTime, breakTime, longPause } = timerSettings
+  get expirationTimestampForCurrentStage() {
+    const time = new Date()
+    time.setSeconds(time.getSeconds() + this.currentStageInSeconds)
+    return time
+  }
 
-  // const pomodoroStages = [workTime, breakTime, workTime, breakTime, workTime, breakTime, workTime, longPause]
-
-
-  function stageFinished() {
+  handleStageFinished = () => {
     new Audio(alarmSound).play() // CAN BE EXTERNALIZED!! RFC ( handle audio + sound user choice)
-    if (index < 7) {
-      setStageCurrentIndex(index + 1)
+    const { stageCurrentIndex } = this.state
+    if (stageCurrentIndex < 7) {
+      this.setState({ stageCurrentIndex: stageCurrentIndex + 1 })
     } else {
-      setStageCurrentIndex(0)
-      setAreAllStagesFinished(true)
-      setIsStageFinished(true)
+      this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
     }
   }
 
-  const time = new Date()
-  time.setSeconds(time.getSeconds() + pomodoroStagesInSeconds[index])
-
-render() {
-  return <Pomodoro
-    
-  setAreAllStagesFinished=
-  setShouldShowTimer,
-  handleTimerSettings,
-  shouldShowTimer,
-  isStageFinished,
-  areAllStagesFinished,
-  stageCurrentIndex,
-  time,
-     />
+  render() {
+    return (
+      <PomodoroView
+        setAreAllStagesFinished={this.setAreAllStagesFinished}
+        setShouldShowTimer={this.setShouldShowTimer}
+        handleTimerSettings={this.handleTimerSettings}
+        shouldShowTimer={this.state.shouldShowTimer}
+        isStageFinished={this.state.isStageFinished}
+        areAllStagesFinished={this.state.areAllStagesFinished}
+        currentStageIndex={this.state.currentStageIndex}
+        expirationTimestampForCurrentStage={this.expirationTimestampForCurrentStage}
+      />
+    )
   }
-
 }
-

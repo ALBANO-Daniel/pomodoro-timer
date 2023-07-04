@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTimer } from 'react-timer-hook'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 import PauseCircleIcon from '@mui/icons-material/PauseCircle'

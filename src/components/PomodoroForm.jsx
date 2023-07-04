@@ -1,9 +1,8 @@
-import * as React from 'react'
 import { Box } from '@mui/system'
 
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 
-function PomodoroForm({ handleTimerSettings, toggleTimer, pomodoroFinished, onSubmit }) {
+function PomodoroForm({ toggleTimer, pomodoroFinished, onSubmit }) {
   return (
     <Box sx={{ alignItems: 'center' }}>
       <Box sx={{ color: 'text.secondary' }}>deani.dev</Box>

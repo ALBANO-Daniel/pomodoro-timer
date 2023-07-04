@@ -1,11 +1,10 @@
-import React from 'react'
-import PomodoroTimer from '../components/PomodoroTimer'
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import PomodoroChips from '../components/PomodoroChips'
+import PomodoroTimer from '../components/PomodoroTimer'
 
-export default function StageProgressIndicator(props) {
-  const { isStageFinished, stageCurrentIndex, time } = props
+export function StageProgressIndicator(props) {
+  const { isStageFinished, currentStageIndex, expirationTimestampForCurrentStage } = props
 
   return (
     <Box sx={{ alignContent: 'center', pt: 3 }}>
@@ -13,13 +12,13 @@ export default function StageProgressIndicator(props) {
         <Typography color="grey" paddingBottom={1}>
           current progress:
         </Typography>
-        <PomodoroChips index={stageCurrentIndex} />
+        <PomodoroChips index={currentStageIndex} />
       </Box>
       <PomodoroTimer
-        expiryTimestamp={time}
+        expiryTimestamp={expirationTimestampForCurrentStage}
         onExpire={isStageFinished}
-        key={stageCurrentIndex}
-        index={stageCurrentIndex}
+        key={currentStageIndex}
+        index={currentStageIndex}
       />
     </Box>
   )

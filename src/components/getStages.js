@@ -1,4 +1,4 @@
-export function getStageInSeconds({ workTime, breakTime, longPause }) {
+export function getStagesInSeconds({ workTime, breakTime, longPause }) {
   const stageInMinutes = getStagesInMinutes({ workTime, breakTime, longPause })
   return convertStageToSeconds(stageInMinutes)
 }
