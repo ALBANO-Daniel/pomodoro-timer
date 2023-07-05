@@ -4,15 +4,20 @@ import { ColorModeContext } from '../theme'
 // import InputBase from "@mui/material/InputBase";
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
+
+
+import MusicOffIcon from '@mui/icons-material/MusicOff'
+import MusicNoteIcon from '@mui/icons-material/MusicNote'
 // import SearchIcon from "@mui/icons-material/Search";
 
-const Topbar = () => {
+const Topbar = ( { muted, handleMuted }) => {
+  
   const theme = useTheme()
   // const colors = tokens(theme.palette.mode)
   const colorMode = useContext(ColorModeContext)
+  
 
   return (
     <Container>
@@ -35,14 +40,15 @@ const Topbar = () => {
           <IconButton onClick={colorMode.toggleColorMode}>
             {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
           </IconButton>
-          <IconButton>
-            <NotificationsOutlinedIcon />
+          {/* \setMode((prev) => (prev === 'light' ? 'dark' : 'light') */}
+          <IconButton onClick={ () => { handleMuted() }}>
+            { muted ? <MusicOffIcon /> : <MusicNoteIcon /> }
           </IconButton>
           <IconButton>
             <SettingsOutlinedIcon />
           </IconButton>
           <IconButton>
-            <PersonOutlinedIcon />
+            <PersonOutlinedIcon color='disabled' />
           </IconButton>
         </Box>
       </Box>

@@ -17,7 +17,7 @@ export default class PomodoroProvider extends React.Component {
       areAllStagesFinished: false,
     }
   }
-
+  
   get currentStageInSeconds() {
     const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
     const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
@@ -27,7 +27,7 @@ export default class PomodoroProvider extends React.Component {
   get expirationTimestampForCurrentStage() {
     const time = new Date()
     time.setSeconds(time.getSeconds() + this.currentStageInSeconds)
-    return time
+    return 5
   }
 
   handleTimerSettings = (timerSettings) => {
@@ -52,10 +52,10 @@ export default class PomodoroProvider extends React.Component {
   handleStageFinished = () => {
     const { stageCurrentIndex } = this.state
     if (stageCurrentIndex < 7) {
-      new Audio(stageFinishedSound).play()
+      !this.props.muted && new Audio(stageFinishedSound).play()
       this.setState({ stageCurrentIndex: stageCurrentIndex + 1 })
     } else {
-      new Audio(allStagesFinishedSound).play()
+      !this.props.muted && new Audio(allStagesFinishedSound).play()
       this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
     }
   }
