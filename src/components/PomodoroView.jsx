@@ -5,32 +5,31 @@ import { StageProgressIndicator } from './StageProgressIndicator'
 
 export function PomodoroView(props) {
   const {
-    setAreAllStagesFinished,
-    setShouldShowTimer,
-    handleTimerSettings,
+    handleSubmit,
+    areAllStagesFinished,
     shouldShowTimer,
     isStageFinished,
-    areAllStagesFinished,
-    currentStageIndex,
+    handleStageFinished,
+    handleAreAllStagesFinished,
+    stageCurrentIndex,
     expirationTimestampForCurrentStage,
   } = props
   return (
     <MainAppContainer>
       <PomodoroForm
-        handleTimerSettings={handleTimerSettings}
+        handleSubmit={handleSubmit}
         shouldShowTimer={shouldShowTimer}
         isStageFinished={isStageFinished}
       />
       {areAllStagesFinished && (
         <AllStagesFinishedAlert
-          setAreAllStagesFinished={setAreAllStagesFinished}
-          setShouldShowTimer={setShouldShowTimer}
+          handleAreAllStagesFinished={handleAreAllStagesFinished}  
         />
       )}
       {shouldShowTimer && !areAllStagesFinished && (
         <StageProgressIndicator
-          isStageFinished={isStageFinished}
-          currentStageIndex={currentStageIndex}
+          handleStageFinished={handleStageFinished}
+          stageCurrentIndex={stageCurrentIndex}
           expirationTimestampForCurrentStage={expirationTimestampForCurrentStage}
         />
       )}

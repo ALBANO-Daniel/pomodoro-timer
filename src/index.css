@@ -37,9 +37,11 @@ body,
   background: #555;
 }
 
-
-
  /* to change RadioGroup label text color ( on focused ) */
  .css-u4tvz2-MuiFormLabel-root.Mui-focused{
   color: #2e7d32 !important;
+}
+/* to change labels when focused, to avoid black on dark-mode */
+.css-w3lmqu-MuiFormLabel-root.Mui-focused{
+  color: white !important;
 }

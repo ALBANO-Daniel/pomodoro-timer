@@ -10,18 +10,18 @@ export default class PomodoroProvider extends React.Component {
       timerSettings: null,
       shouldShowTimer: false,
       isStageFinished: false,
-      currentStageIndex: 0,
+      stageCurrentIndex: 0,
       areAllStagesFinished: false,
-      currentStageExpiresIn: new Date(),
     }
   }
 
   handleTimerSettings = (timerSettings) => {
     this.setState({
       timerSettings,
-      currentStageIndex: 0,
+      stageCurrentIndex: 0,
       shouldShowTimer: !this.state.shouldShowTimer,
       isStageFinished: false,
+      areAllStagesFinished: false,
     })
   }
 
@@ -36,7 +36,7 @@ export default class PomodoroProvider extends React.Component {
   get currentStageInSeconds() {
     const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
     const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
-    return pomodoroStagesInSeconds[this.state.currentStageExpiresIn]
+    return pomodoroStagesInSeconds[this.state.stageCurrentIndex]
   }
 
   get expirationTimestampForCurrentStage() {
@@ -55,16 +55,22 @@ export default class PomodoroProvider extends React.Component {
     }
   }
 
+  handleAreAllStagesFinished = () => {
+    this.setState({ shouldShowTimer: false })
+  }
+
   render() {
     return (
       <PomodoroView
-        setAreAllStagesFinished={this.setAreAllStagesFinished}
-        setShouldShowTimer={this.setShouldShowTimer}
+        handleSubmit={this.handleSubmit}
         handleTimerSettings={this.handleTimerSettings}
+        setShouldShowTimer={this.setShouldShowTimer}
         shouldShowTimer={this.state.shouldShowTimer}
         isStageFinished={this.state.isStageFinished}
+        handleStageFinished={this.handleStageFinished}
+        handleAreAllStagesFinished={this.handleAreAllStagesFinished}
         areAllStagesFinished={this.state.areAllStagesFinished}
-        currentStageIndex={this.state.currentStageIndex}
+        stageCurrentIndex={this.state.stageCurrentIndex}
         expirationTimestampForCurrentStage={this.expirationTimestampForCurrentStage}
       />
     )

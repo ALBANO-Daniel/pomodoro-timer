@@ -4,7 +4,7 @@ import PomodoroChips from '../components/PomodoroChips'
 import PomodoroTimer from '../components/PomodoroTimer'
 
 export function StageProgressIndicator(props) {
-  const { isStageFinished, currentStageIndex, expirationTimestampForCurrentStage } = props
+  const { handleStageFinished, stageCurrentIndex, expirationTimestampForCurrentStage } = props
 
   return (
     <Box sx={{ alignContent: 'center', pt: 3 }}>
@@ -12,13 +12,13 @@ export function StageProgressIndicator(props) {
         <Typography color="grey" paddingBottom={1}>
           current progress:
         </Typography>
-        <PomodoroChips index={currentStageIndex} />
+        <PomodoroChips index={stageCurrentIndex} />
       </Box>
       <PomodoroTimer
         expiryTimestamp={expirationTimestampForCurrentStage}
-        onExpire={isStageFinished}
-        key={currentStageIndex}
-        index={currentStageIndex}
+        handleStageFinished={handleStageFinished}
+        key={stageCurrentIndex}
+        index={stageCurrentIndex}
       />
     </Box>
   )
