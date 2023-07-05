@@ -1,6 +1,4 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-// import { Route, Routes } from 'react-router-dom'
-// import { Switch, Redirect } from 'react-router'
 import PomodoroProvider from './components/PomodoroProvider'
 import Topbar from './components/Topbar'
 import { ColorModeContext, useMode } from './theme'
@@ -22,13 +20,6 @@ function App() {
           <Topbar muted={muted} handleMuted={handleMuted}/>
           <main className="content">
             <PomodoroProvider muted={muted}/>
-            {/* <Routes> */}
-            {/* <Route path="/" element={<PomodoroProvider />} /> */}
-            {/* <Switch>
-                <Route path="/" element={<div>bbb</div>} />
-                <Redirect to={'/'} />
-              </Switch> */}
-            {/* </Routes> */}
           </main>
         </div>
       </ThemeProvider>

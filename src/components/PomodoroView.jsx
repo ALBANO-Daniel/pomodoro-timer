@@ -14,6 +14,7 @@ export function PomodoroView(props) {
     stageCurrentIndex,
     expirationTimestampForCurrentStage,
   } = props
+  
   return (
     <MainAppContainer>
       <PomodoroForm
