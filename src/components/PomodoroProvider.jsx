@@ -1,5 +1,8 @@
 import React from 'react'
-import alarmSound from '../sounds/windowsXP.opus'
+
+import stageFinishedSound from '../sounds/windowsXP.opus'
+import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
+
 import { PomodoroView } from './PomodoroView'
 import { getStagesInSeconds } from './getStages'
 
@@ -15,24 +18,6 @@ export default class PomodoroProvider extends React.Component {
     }
   }
 
-  handleTimerSettings = (timerSettings) => {
-    this.setState({
-      timerSettings,
-      stageCurrentIndex: 0,
-      shouldShowTimer: !this.state.shouldShowTimer,
-      isStageFinished: false,
-      areAllStagesFinished: false,
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const form = event.target
-    const formData = new FormData(form)
-    const formJson = Object.fromEntries(formData.entries())
-    this.handleTimerSettings(formJson)
-  }
-
   get currentStageInSeconds() {
     const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
     const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
@@ -45,12 +30,32 @@ export default class PomodoroProvider extends React.Component {
     return time
   }
 
+  handleTimerSettings = (timerSettings) => {
+    this.setState({
+      timerSettings,
+      stageCurrentIndex: 0,
+      shouldShowTimer: !this.state.shouldShowTimer,
+      isStageFinished: false,
+      areAllStagesFinished: false,
+    })
+  }
+
+  // values from Form into Obj
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+    const formDataJson = Object.fromEntries(formData.entries())
+    this.handleTimerSettings(formDataJson)
+  }
+
   handleStageFinished = () => {
-    new Audio(alarmSound).play() // CAN BE EXTERNALIZED!! RFC ( handle audio + sound user choice)
     const { stageCurrentIndex } = this.state
     if (stageCurrentIndex < 7) {
+      new Audio(stageFinishedSound).play()
       this.setState({ stageCurrentIndex: stageCurrentIndex + 1 })
     } else {
+      new Audio(allStagesFinishedSound).play()
       this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
     }
   }
