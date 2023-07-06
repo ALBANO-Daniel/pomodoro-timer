@@ -142,7 +142,8 @@ export const themeSettings = (mode) => {
           light: colors.grey[100],
         },
         background: {
-          default: colors.primary[500],
+          default: colors.primary[600],
+          paper: colors.primary[400],
         },
       },
       typography: {
@@ -191,7 +192,8 @@ export const themeSettings = (mode) => {
           light: colors.grey[100],
         },
         background: {
-          default: '#fcfcfc',
+          default: colors.grey[900],
+          paper: colors.primary[400],
         },
       },
       typography: {

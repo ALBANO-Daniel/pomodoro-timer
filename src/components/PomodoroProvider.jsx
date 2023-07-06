@@ -69,12 +69,12 @@ export default class PomodoroProvider extends React.Component {
       <PomodoroView
         handleSubmit={this.handleSubmit}
         handleTimerSettings={this.handleTimerSettings}
-        setShouldShowTimer={this.setShouldShowTimer}
         shouldShowTimer={this.state.shouldShowTimer}
+        setShouldShowTimer={this.setShouldShowTimer}
         isStageFinished={this.state.isStageFinished}
         handleStageFinished={this.handleStageFinished}
-        handleAreAllStagesFinished={this.handleAreAllStagesFinished}
         areAllStagesFinished={this.state.areAllStagesFinished}
+        handleAreAllStagesFinished={this.handleAreAllStagesFinished}
         stageCurrentIndex={this.state.stageCurrentIndex}
         expirationTimestampForCurrentStage={this.expirationTimestampForCurrentStage}
       />
