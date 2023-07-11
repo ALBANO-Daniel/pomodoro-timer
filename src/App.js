@@ -1,15 +1,19 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import PomodoroProvider from './components/PomodoroProvider'
+// import PomodoroProvider from './components/PomodoroProvider'
 import Topbar from './components/Topbar'
 import { ColorModeContext, useMode } from './theme'
 import { useState } from 'react'
+import Route from './components/Route'
+import Home from './pages/Home'
+import PomodoroPage from './pages/PomodoroPage'
+import TodosPage from './pages/TodosPage'
 
 function App() {
   const [muted, setMuted] = useState(false)
   const [theme, colorMode] = useMode()
 
   const handleMuted = () => {
-    setMuted( prev => (prev === false ? true : false ))
+    setMuted((prev) => (prev === false ? true : false))
   }
 
   return (
@@ -17,9 +21,17 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Topbar muted={muted} handleMuted={handleMuted}/>
+          <Topbar muted={muted} handleMuted={handleMuted} />
           <main className="content">
-            <PomodoroProvider muted={muted}/>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="/pomodoro">
+              <PomodoroPage muted={muted} />
+            </Route>
+            <Route path="/todos">
+              <TodosPage />
+            </Route>
           </main>
         </div>
       </ThemeProvider>
