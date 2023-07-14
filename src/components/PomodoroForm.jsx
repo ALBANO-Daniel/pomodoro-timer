@@ -3,6 +3,10 @@ import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } f
 
 
 function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
+  
+  if (shouldShowTimer === false) {
+    document.title = 'Pomodoro Timer'
+  }
 
   return (
     <Box sx={{ alignItems: 'center' }}>
