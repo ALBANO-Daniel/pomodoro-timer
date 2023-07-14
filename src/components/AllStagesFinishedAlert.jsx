@@ -7,16 +7,16 @@ export function AllStagesFinishedAlert(props) {
   const [open, setOpen] = useState(true)
 
   return (
-    <Box sx={{ alignContent: 'center', pt: 3 }}>
+    <Box sx={{ alignContent: 'center', pt: 3, mr: 10 }}>
       <Collapse in={open}>
         <Alert
-          sx={{ height: '70px', pt: 5 }}
+          sx={{ height: '70px', pt: 2 }}
           onClose={() => {
             setOpen(false)
             handleAreAllStagesFinished()
           }}
         >
-          Pomodoro Finished!!!!
+          Pomodoro Finished !!!!
         </Alert>
       </Collapse>
     </Box>

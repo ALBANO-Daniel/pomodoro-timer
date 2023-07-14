@@ -1,7 +1,9 @@
 import React from 'react'
 
-import stageFinishedSound from '../sounds/windowsXP.opus'
-import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
+// import stageFinishedSound from '../sounds/windowsXP.opus'
+import stageFinishedSound from '../sounds/default.m4a'
+// import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
+import allStagesFinishedSound from '../sounds/ps1.m4a'
 
 import { PomodoroView } from './PomodoroView'
 import { getStagesInSeconds } from './getStages'
@@ -27,7 +29,7 @@ export default class PomodoroProvider extends React.Component {
   get expirationTimestampForCurrentStage() {
     const time = new Date()
     time.setSeconds(time.getSeconds() + this.currentStageInSeconds)
-    return time
+    return 5
   }
 
   handleTimerSettings = (timerSettings) => {
