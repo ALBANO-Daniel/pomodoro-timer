@@ -4,9 +4,9 @@ import Topbar from './components/Topbar'
 import { ColorModeContext, useMode } from './theme'
 import { useState } from 'react'
 import Route from './components/Route'
-import Home from './pages/Home'
+// import Home from './pages/Home'
 import PomodoroPage from './pages/PomodoroPage'
-import TodosPage from './pages/TodosPage'
+// import TodosPage from './pages/TodosPage'
 
 function App() {
   const [muted, setMuted] = useState(false)
@@ -24,14 +24,14 @@ function App() {
           <Topbar muted={muted} handleMuted={handleMuted} />
           <main className="content">
             <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/pomodoro">
               <PomodoroPage muted={muted} />
+              {/* <Home /> */}
             </Route>
-            <Route path="/todos">
-              <TodosPage />
-            </Route>
+            {/* <Route path="/pomodoro"> */}
+            {/* </Route> */}
+            {/* <Route path="/todos"> */}
+            {/* <TodosPage /> */}
+            {/* </Route> */}
           </main>
         </div>
       </ThemeProvider>
