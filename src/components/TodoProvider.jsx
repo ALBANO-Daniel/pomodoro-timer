@@ -1,6 +1,8 @@
+import TodoView from './TodoView'
+
 function TodoProvider() {
   return (
-    <div>TodoProvider</div>
+    <TodoView />
   )
 }
 

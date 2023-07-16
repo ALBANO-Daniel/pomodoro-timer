@@ -5,7 +5,7 @@ function PomodoroPage({ muted, visible }) {
   const visibleClassName = visible ? 'block' : 'none'
 
   return (
-    <Box sx={{ display: visibleClassName }} >
+    <Box sx={{ display: visibleClassName }}>
       <PomodoroProvider muted={muted} />
     </Box>
   )
