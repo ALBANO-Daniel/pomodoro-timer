@@ -31,7 +31,7 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
         }}
       >
         <form method="post" onSubmit={handleSubmit}>
-          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, mx: [0.5 , 1.5] }}>
+          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5 , 1.5] }}>
             <FormLabel id="workTime">Work periods</FormLabel>
             <RadioGroup size='small' aria-labelledby="choose work time" defaultValue={25} name="workTime">
               <FormControlLabel value="20" control={<Radio color="success" />} label="20min" />
@@ -49,7 +49,7 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
             </RadioGroup>
           </FormControl>
 
-          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, mx: [0.5 , 1.5] }}>
+          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5 , 1.5] }}>
             <FormLabel id="longPause">Long pause</FormLabel>
             <RadioGroup aria-labelledby="choose end of cicle break time" defaultValue={15} name="longPause">
               <FormControlLabel value="15" control={<Radio color="success" />} label="15min" />

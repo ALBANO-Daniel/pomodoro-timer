@@ -30,7 +30,7 @@ const Topbar = ( { muted, handleMuted }) => {
             { muted ? <MusicOffIcon /> : <MusicNoteIcon /> }
           </IconButton>
           <IconButton>
-            <SettingsOutlinedIcon />
+            <SettingsOutlinedIcon color='disabled' />
           </IconButton>
           <IconButton>
             <PersonOutlinedIcon color='disabled' />

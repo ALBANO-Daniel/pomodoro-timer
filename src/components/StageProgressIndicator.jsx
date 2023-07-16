@@ -7,9 +7,9 @@ export function StageProgressIndicator(props) {
   const { handleStageFinished, stageCurrentIndex, expirationTimestampForCurrentStage } = props
 
   return (
-    <Box sx={{ alignContent: 'center', pt: 3 }}>
-      <Box sx={{ pb: 5 }}>
-        <Typography color="grey" paddingBottom={1}>
+    <Box sx={{ alignContent: 'center', pt: 0 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Typography color="grey" paddingBottom={2} fontSize={[16,21]}>
           current progress:
         </Typography>
         <PomodoroChips index={stageCurrentIndex} />
