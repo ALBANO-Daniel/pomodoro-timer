@@ -17,7 +17,7 @@ export default function PomodoroTimer({ expiryTimestamp, handleStageFinished, in
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', fontSize: [50,50,100], height: [200,200,300], justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
-      <Typography fontSize={[50,80,100]} >
+      <Typography fontSize={[80,90,110]} >
         {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
       </Typography>
       <Stack>
