@@ -16,14 +16,14 @@ const Topbar = ({ muted, handleMuted }) => {
   return (
     <Container
       sx={{
-        height: '50px',
+        height: '70px',
         marginBottom: '30px',
-        padding: 0,
+        padding: 2,
         bgcolor: ['neutral.dark', 'neutral.dark', 'transparent'],
       }}
     >
-      <Box display="flex" justifyContent="space-between" p={[0, 1, 2]}>
-        <Box display="flex" borderRadius="3px" paddingLeft={1}>
+      <Box display="flex" justifyContent="space-between" >
+        <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={0.5}>
           <img src={AppIcon} alt="logo" height="30px" />
           <Typography padding={0.5}>deani.dev</Typography>
         </Box>
