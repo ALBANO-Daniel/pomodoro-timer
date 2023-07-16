@@ -29,7 +29,7 @@ export default class PomodoroProvider extends React.Component {
   get expirationTimestampForCurrentStage() {
     const time = new Date()
     time.setSeconds(time.getSeconds() + this.currentStageInSeconds)
-    return 5
+    return time
   }
 
   handleTimerSettings = (timerSettings) => {
