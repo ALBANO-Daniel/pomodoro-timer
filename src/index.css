@@ -18,6 +18,12 @@ body,
   align-content: center;
 }
 
+@media (max-width: 600px) {
+  .app{
+    background-image: url(./images/giphy.gif);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
