@@ -7,6 +7,7 @@ export const MainAppContainer = (props) => {
         display: 'flex',
         p: 1,
         justifyContent: 'center',
+        alignContent: 'center',
       }}
     >
       <Box
@@ -14,9 +15,9 @@ export const MainAppContainer = (props) => {
           bgcolor: 'background.paper',
           boxShadow: 1,
           borderRadius: 2,
-          p: 2,
-          pl: 9,
-          width: '500px',
+          p: [1,1,2],
+          pl: [1,1,1],
+          width: [400,400,500],
           minWidth: 300,
           alignContent: 'center',
         }}

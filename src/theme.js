@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo } from 'react'
-import { createTheme } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
 // color design tokens export
 export const tokens = (mode) => {
@@ -125,6 +125,48 @@ export const tokens = (mode) => {
 // mui theme settings
 export const themeSettings = (mode) => {
   const colors = tokens(mode)
+
+  const globalConfig = {
+    breakpoints: {
+      values: {
+        xs: 0,
+        xx: 400,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+    typography: {
+      fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+      fontSize: 12,
+      h1: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 40,
+      },
+      h2: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 32,
+      },
+      h3: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 24,
+      },
+      h4: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 20,
+      },
+      h5: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 16,
+      },
+      h6: {
+        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
+        fontSize: 14,
+      },
+    },
+  }
+
   if (mode === 'dark') {
     return {
       palette: {
@@ -146,34 +188,7 @@ export const themeSettings = (mode) => {
           paper: colors.primary[400],
         },
       },
-      typography: {
-        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-        fontSize: 12,
-        h1: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 40,
-        },
-        h2: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 32,
-        },
-        h3: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 24,
-        },
-        h4: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 20,
-        },
-        h5: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 16,
-        },
-        h6: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 14,
-        },
-      },
+      ...globalConfig,
     }
   } else {
     return {
@@ -196,34 +211,7 @@ export const themeSettings = (mode) => {
           paper: colors.primary[400],
         },
       },
-      typography: {
-        fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-        fontSize: 12,
-        h1: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 40,
-        },
-        h2: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 32,
-        },
-        h3: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 24,
-        },
-        h4: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 20,
-        },
-        h5: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 16,
-        },
-        h6: {
-          fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-          fontSize: 14,
-        },
-      },
+      ...globalConfig,
     }
   }
 }
@@ -243,7 +231,8 @@ export const useMode = () => {
     [],
   )
 
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
+  let theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
+  theme = responsiveFontSizes(theme)
   return [theme, colorMode]
 }
 
