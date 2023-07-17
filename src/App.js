@@ -44,7 +44,7 @@ function App() {
             ) : (
               <PomodoroPage muted={muted} visible={false} />
             )}
-            {visibleFeature === 'todo' ? <TodoPage visible={true} /> : <TodoPage visible={false} />}
+            {visibleFeature === 'todo' ?  <TodoPage visible={true} /> : <TodoPage visible={false} />}
             {visibleFeature === 'profile' ? <ProfilePage visible={true} /> : <ProfilePage visible={false} />}
           </main>
         </div>
