@@ -7,7 +7,7 @@ import MusicOffIcon from '@mui/icons-material/MusicOff'
 import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import AppIcon from '../images/favicon.gif'
+import AppIcon from '../images/favicon2.gif'
 
 const Topbar = ({ muted, handleMuted }) => {
   const theme = useTheme()

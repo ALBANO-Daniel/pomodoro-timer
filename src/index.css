@@ -21,7 +21,7 @@ body,
 
 @media (max-width: 600px) {
   .app{
-    background-image: url(./images/giphy.gif);
+    background-image: url(./images/clockGif.gif);
     background-size: contain;
   }
 }
