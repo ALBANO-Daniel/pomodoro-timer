@@ -1,46 +1,34 @@
 import { Box } from '@mui/system'
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
-
+import MainAppHeaderSubheader from './MainAppHeaderSubheader'
+import React from 'react'
 
 function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
-  
   if (shouldShowTimer === false) {
     document.title = 'Pomodoro Timer'
   }
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', py: 2 }}>
-      {/* <Box sx={{ color: 'text.secondary' }}>deani.dev</Box> */}
-      <Box sx={{ color: 'text.primary', fontSize: [30,30,34], fontWeight: 'medium' }}>Pomodoro Timer</Box>
+    <React.Fragment>
+      <MainAppHeaderSubheader header={'Pomodoro Timer'} subheader={'choose your settings and press create:'} />
       <Box
         sx={{
-          color: 'success.dark',
-          display: 'inline',
-          fontWeight: 'bold',
-          mx: 0.5,
-          fontSize: [14,14,16],
-        }}
-      >
-        choose your settings and press create:
-      </Box>
-      <Box
-        sx={{
-          p: [0,2],
+          p: [0, 2],
           display: 'flex',
           justifyContent: 'center',
         }}
       >
         <form method="post" onSubmit={handleSubmit}>
-          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5 , 1.5] }}>
+          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5, 1.5] }}>
             <FormLabel id="workTime">Work periods</FormLabel>
-            <RadioGroup size='small' aria-labelledby="choose work time" defaultValue={25} name="workTime">
+            <RadioGroup size="small" aria-labelledby="choose work time" defaultValue={25} name="workTime">
               <FormControlLabel value="20" control={<Radio color="success" />} label="20min" />
               <FormControlLabel value="25" control={<Radio color="success" />} label="25min" />
               <FormControlLabel value="30" control={<Radio color="success" />} label="30min" />
             </RadioGroup>
           </FormControl>
 
-          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, mx: [0.5 , 1.5] }}>
+          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, mx: [0.5, 1.5] }}>
             <FormLabel id="breakTime">Break periods</FormLabel>
             <RadioGroup aria-labelledby="choose break time" defaultValue={5} name="breakTime">
               <FormControlLabel value="5" control={<Radio color="success" />} label="5min" />
@@ -49,7 +37,7 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
             </RadioGroup>
           </FormControl>
 
-          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5 , 1.5] }}>
+          <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5, 1.5] }}>
             <FormLabel id="longPause">Long pause</FormLabel>
             <RadioGroup aria-labelledby="choose end of cicle break time" defaultValue={15} name="longPause">
               <FormControlLabel value="15" control={<Radio color="success" />} label="15min" />
@@ -77,7 +65,7 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
           </Box>
         </form>
       </Box>
-    </Box>
+    </React.Fragment>
   )
 }
 

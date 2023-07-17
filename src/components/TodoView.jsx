@@ -1,49 +1,33 @@
 import { Box } from '@mui/material'
 import { MainAppContainer } from './MainAppContainer'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
+import MainAppHeaderSubheader from './MainAppHeaderSubheader'
 
-function TodoView() {
+function TodoView({ todos }) {
   const handleTodoSubmit = () => {}
+  const handleTodoDelete = () => {}
+  const handleTodoEdit = () => {}
+  const handleTodoComplete = () => {}
+
   return (
     <MainAppContainer>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', alignContent: 'center', py: 2 }}>
-        {/* <Box sx={{ color: 'text.secondary' }}>deani.dev</Box> */}
-        <Box sx={{ color: 'text.primary', fontSize: [30, 30, 34], fontWeight: 'medium' }}>Your List of Tasks</Box>
-        <Box
-          sx={{
-            color: 'success.dark',
-            display: 'inline',
-            fontWeight: 'bold',
-            mx: 0.5,
-            fontSize: [14, 14, 16],
-          }}
-        >
-          create, edit, complete and delete:
-        </Box>
-        <Box
-          sx={{
-            p: [0, 2],
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
-          <ul>
-            <li>todo 1</li>
-            <li>todo 1</li>
-            <li>todo 1</li>
-            <li>todo 1</li>
-            <li>todo 1</li>
-            <li>todo 1 - edit(pencil) - complete(sign) - delete(x) </li>
-            <li>todo 1</li>
-            <li>todo 1</li>
-          </ul>
-
-          <form method="post" onSubmit={handleTodoSubmit}>
-            <label name='todo'>new todo: </label>
-            <input name='todo' type='text'/>
-            <button>submit</button>
-          </form>
-        </Box>
+      <MainAppHeaderSubheader header={'Your List of Tasks'} subheader={'create, edit, complete and delete: '} />
+      <Box
+        sx={{
+          p: [0, 2],
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        }}
+      >
+        <TodoList
+          todos={todos}
+          handleTodoDelete={handleTodoDelete}
+          handleTodoEdit={handleTodoEdit}
+          handleTodoComplete={handleTodoComplete}
+        />
+        <TodoForm handleTodoSubmit={handleTodoSubmit} />
       </Box>
     </MainAppContainer>
   )
