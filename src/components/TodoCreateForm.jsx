@@ -1,19 +1,23 @@
 import { Box } from '@mui/material'
 import { useState } from 'react'
 
-function TodoForm({ handleTodoSubmit }) {
+function TodoCreateForm({ handleTodoSubmit }) {
   const [newTodo, setNewTodo] = useState('')
 
   const updateValue = (event) => {
     setNewTodo(event.target.value)
   }
+  const handleClick = () => {
+    handleTodoSubmit(newTodo)
+    setNewTodo('')
+  }
 
   return (
     <Box>
       <input value={newTodo} onChange={updateValue} />
-      <button onClick={() => handleTodoSubmit()}>Add</button>
+      <button onClick={() => handleClick()}>Add</button>
     </Box>
   )
 }
 
-export default TodoForm
+export default TodoCreateForm

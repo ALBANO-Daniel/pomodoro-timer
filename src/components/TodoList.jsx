@@ -1,20 +1,23 @@
-function TodoList() {
+import { Box } from '@mui/material'
+import Todo from './Todo'
+
+function TodoList({ todos, handleTodoEdit, handleTodoComplete, handleTodoDelete, handleTodoArchive }) {
   return (
-    <div>TodoList</div>
+    <Box>
+      {todos.map((todo) => {
+        return (
+          <Todo
+            key={todo.id}
+            todo={todo}
+            handleTodoEdit={handleTodoEdit}
+            handleTodoComplete={handleTodoComplete}
+            handleTodoDelete={handleTodoDelete}
+            handleTodoArchive={handleTodoArchive}
+          />
+        )
+      })}
+    </Box>
   )
 }
 
 export default TodoList
-
-
-
-// <ul>
-// <li>todo 1</li>
-// <li>todo 1</li>
-// <li>todo 1</li>
-// <li>todo 1</li>
-// <li>todo 1</li>
-// <li>todo 1 - edit(pencil) - complete(sign) - delete(x) </li>
-// <li>todo 1</li>
-// <li>todo 1</li>
-// </ul>

@@ -1,14 +1,19 @@
 import { Box } from '@mui/material'
 import { MainAppContainer } from './MainAppContainer'
-import TodoForm from './TodoForm'
+import TodoCreateForm from './TodoCreateForm'
 import TodoList from './TodoList'
 import MainAppHeaderSubheader from './MainAppHeaderSubheader'
 
-function TodoView({ todos }) {
-  const handleTodoSubmit = () => {}
-  const handleTodoDelete = () => {}
-  const handleTodoEdit = () => {}
-  const handleTodoComplete = () => {}
+function TodoView(props) {
+  const {
+    todos,
+    archivedTodos,
+    handleTodoSubmit,
+    handleTodoEdit,
+    handleTodoComplete,
+    handleTodoDelete,
+    handleTodoArchive,
+  } = props
 
   return (
     <MainAppContainer>
@@ -21,13 +26,21 @@ function TodoView({ todos }) {
           justifyContent: 'center',
         }}
       >
+        <TodoCreateForm handleTodoSubmit={handleTodoSubmit} />
         <TodoList
           todos={todos}
-          handleTodoDelete={handleTodoDelete}
           handleTodoEdit={handleTodoEdit}
           handleTodoComplete={handleTodoComplete}
+          handleTodoDelete={handleTodoDelete}
+          handleTodoArchive={handleTodoArchive}
         />
-        <TodoForm handleTodoSubmit={handleTodoSubmit} />
+      </Box>
+      <Box sx={{ backgroundColor: 'green' }}>
+        {archivedTodos.map(todo => {
+          console.log('achived list ')
+          console.log(todo.id)
+          return <Box key={todo.id}>{todo.text}</Box>
+        })}
       </Box>
     </MainAppContainer>
   )
