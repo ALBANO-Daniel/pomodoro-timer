@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pomodoro-timer/static/css/main.ebfaa5dd.css",
-    "main.js": "/pomodoro-timer/static/js/main.c7aed71d.js",
-    "static/media/giphy.gif": "/pomodoro-timer/static/media/giphy.07df152f73e7d01ddc9b.gif",
+    "main.css": "/pomodoro-timer/static/css/main.7a53e60e.css",
+    "main.js": "/pomodoro-timer/static/js/main.8fd843ef.js",
+    "static/media/clockGif.gif": "/pomodoro-timer/static/media/clockGif.c7c3274c58f239155a31.gif",
     "static/media/ps1.m4a": "/pomodoro-timer/static/media/ps1.0a55f29ac0eeed4a18a0.m4a",
-    "static/media/favicon.gif": "/pomodoro-timer/static/media/favicon.dacd6d31147817ff5883.gif",
+    "static/media/favicon2.gif": "/pomodoro-timer/static/media/favicon2.1820a3e825b0080a41ea.gif",
     "static/media/default.m4a": "/pomodoro-timer/static/media/default.1822a0b356e1ac8cb3ba.m4a",
     "index.html": "/pomodoro-timer/index.html",
-    "main.ebfaa5dd.css.map": "/pomodoro-timer/static/css/main.ebfaa5dd.css.map",
-    "main.c7aed71d.js.map": "/pomodoro-timer/static/js/main.c7aed71d.js.map"
+    "main.7a53e60e.css.map": "/pomodoro-timer/static/css/main.7a53e60e.css.map",
+    "main.8fd843ef.js.map": "/pomodoro-timer/static/js/main.8fd843ef.js.map"
   },
   "entrypoints": [
-    "static/css/main.ebfaa5dd.css",
-    "static/js/main.c7aed71d.js"
+    "static/css/main.7a53e60e.css",
+    "static/js/main.8fd843ef.js"
   ]
 }
