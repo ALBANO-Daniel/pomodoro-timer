@@ -23,9 +23,9 @@ const Topbar = ({ muted, handleMuted }) => {
       }}
     >
       <Box display="flex" justifyContent="space-between" >
-        <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={0.5}>
-          <img src={AppIcon} alt="logo" height="30px" />
-          <Typography padding={0.5}>deani.dev</Typography>
+        <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={1}>
+          <img src={AppIcon} alt="logo" height="23px" />
+          <Typography paddingLeft={1}>deani.dev</Typography>
         </Box>
 
         <Box display="flex">
