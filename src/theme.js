@@ -167,6 +167,7 @@ export const themeSettings = (mode) => {
     },
   }
 
+  // color mode configuration to return final MUI theme
   if (mode === 'dark') {
     return {
       palette: {

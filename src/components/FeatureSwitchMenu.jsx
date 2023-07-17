@@ -1,8 +1,6 @@
 import { Box, Button, ButtonGroup } from '@mui/material'
 import { useState } from 'react'
 
-
-
 function FeatureSwitchMenu( { handleVisibleFeature }) {
 
   const [choosedFeature, setChoosedFeature] = useState('timer')
