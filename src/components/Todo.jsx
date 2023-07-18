@@ -56,7 +56,7 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
             marginLeft: 0,
             borderTop: 0,
             borderRight: 0,
-            borderTopRightRadius: 13,
+            borderTopRightRadius: [13,13,0],
           }}
           onClick={() => handleEditClick()}
           disabled={showEdit}
@@ -72,6 +72,7 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
               borderBottom: 0,
               borderRight: 0,
               borderBottomRightRadius: 13,
+              borderTopRightRadius: [0,0,13],
             }}
             variant="contained"
             color="success"
@@ -83,7 +84,7 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
           <Button
             variant="outlined"
             color="success"
-            sx={{ width: ['60px', '61px', '60.5px'], height: '100%', borderRadius: 0, borderBottom: 0, borderRight: 0, borderBottomRightRadius: 13 }}
+            sx={{ width: ['60px', '61px', '60.5px'], height: '100%', borderRadius: 0, borderBottom: 0, borderRight: 0, borderBottomRightRadius: 13, borderTopRightRadius: [0,0,13]  }}
             onClick={() => handleTodoDelete(todo.id)}
           >
             delete
