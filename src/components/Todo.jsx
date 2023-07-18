@@ -49,7 +49,15 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
         <Button
           variant="outlined"
           color="success"
-          sx={{ width: ['60px', '60px', '60.5px'], height: '100%', borderRadius: 0, marginLeft: 0 }}
+          sx={{
+            width: ['60px', '60px', '60.5px'],
+            height: '100%',
+            borderRadius: 0,
+            marginLeft: 0,
+            borderTop: 0,
+            borderRight: 0,
+            borderTopRightRadius: 13,
+          }}
           onClick={() => handleEditClick()}
           disabled={showEdit}
         >
@@ -57,7 +65,14 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
         </Button>
         {todo.complete ? (
           <Button
-            sx={{ width: ['60px', '58px', '60.5px'], height: '100%', borderRadius: 0 }}
+            sx={{
+              width: ['60px', '58px', '60.5px'],
+              height: '100%',
+              borderRadius: 0,
+              borderBottom: 0,
+              borderRight: 0,
+              borderBottomRightRadius: 13,
+            }}
             variant="contained"
             color="success"
             onClick={() => handleTodoArchive(todo.id)}
@@ -68,7 +83,7 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
           <Button
             variant="outlined"
             color="success"
-            sx={{ width: ['60px', '61px', '60.5px'], height: '100%', borderRadius: 0 }}
+            sx={{ width: ['60px', '61px', '60.5px'], height: '100%', borderRadius: 0, borderBottom: 0, borderRight: 0, borderBottomRightRadius: 13 }}
             onClick={() => handleTodoDelete(todo.id)}
           >
             delete
@@ -93,8 +108,9 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
           height: 'auto',
           width: 'auto',
           border: 2,
-          // borderRadius: '15px',
+          borderRadius: '15px',
           borderColor: 'success.light',
+          backgroundColor: 'transparent',
         }}
         square
       >

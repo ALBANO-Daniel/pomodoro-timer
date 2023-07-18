@@ -1,6 +1,8 @@
+import ProfileView from './ProfileView'
+
 function ProfileProvider() {
   return (
-    <div>ProfileProvider</div>
+    <ProfileView />
   )
 }
 
