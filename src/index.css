@@ -17,6 +17,7 @@ body,
   /* background-color: aliceblue; */
   align-items: center;
   align-content: center;
+  overflow-x: hidden;
 }
 
 @media (max-width: 600px) {
