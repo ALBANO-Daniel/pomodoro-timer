@@ -34,7 +34,6 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
         sx={{
           fontSize: ['15px', '15px', '19px'],
           lineBreak: 'normal',
-          overflow: 'scroll',
           overflowWrap: 'normal',
           letterSpacing: 0,
           textAlign: 'center',
