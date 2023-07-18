@@ -1,5 +1,5 @@
-import { Box, Button, ButtonGroup } from '@mui/material'
-import { useState } from 'react'
+import { Box, Button, Paper, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import TodoEditForm from './TodoEditForm'
 import CropSquareIcon from '@mui/icons-material/CropSquare'
 import CheckBoxIcon from '@mui/icons-material/CheckBox'
@@ -18,21 +18,88 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
     handleTodoComplete(todo.id)
   }
 
+  const todoContent = (
+    <React.Fragment>
+      {/* <Box sx={{ backgroundColor: 'transparent', fontSize: '20px', lineBreak: 'auto', height: 'auto', margin: 1, overflow: 'auto' }}> */}
+      {/* <Box sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}> */}
+      <Button onClick={() => handleCompleteClick()}>
+        {todo.complete ? (
+          <CheckBoxIcon fontSize="small" color="success" />
+        ) : (
+          <CropSquareIcon fontSize="small" color="success" />
+        )}
+      </Button>
+      {/* </Box> */}
+      <Typography
+        sx={{
+          fontSize: ['15px', '15px', '19px'],
+          lineBreak: 'normal',
+          overflow: 'scroll',
+          overflowWrap: 'normal',
+          letterSpacing: 0,
+          textAlign: 'center',
+          padding: 2,
+          paddingLeft: 0,
+        }}
+      >
+        {todo.text}
+      </Typography>
+      {/* </Box> */}
+      <Box sx={{ display: 'flex', flexDirection: ['column', 'column', 'row'], margin: 0 }}>
+        <Button
+          variant="outlined"
+          color="success"
+          sx={{ width: ['60px', '60px', '60.5px'], height: '100%', borderRadius: 0, marginLeft: 0 }}
+          onClick={() => handleEditClick()}
+          disabled={showEdit}
+        >
+          edit
+        </Button>
+        {todo.complete ? (
+          <Button
+            sx={{ width: ['60px', '58px', '60.5px'], height: '100%', borderRadius: 0 }}
+            variant="contained"
+            color="success"
+            onClick={() => handleTodoArchive(todo.id)}
+          >
+            archive
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            color="success"
+            sx={{ width: ['60px', '61px', '60.5px'], height: '100%', borderRadius: 0 }}
+            onClick={() => handleTodoDelete(todo.id)}
+          >
+            delete
+          </Button>
+        )}
+      </Box>
+    </React.Fragment>
+  )
 
   return (
     <Box>
-      {showEdit ? <TodoEditForm todo={todo} handleEditForm={handleEditForm} /> : <Box>{todo.text}</Box>}
-      <ButtonGroup>
-        <Button onClick={() => handleEditClick()} disabled={showEdit}>
-          edit
-        </Button>
-        <Button onClick={() => handleCompleteClick()}>{todo.complete ? <CheckBoxIcon /> : <CropSquareIcon />}</Button>
-        {todo.complete ? (
-          <Button onClick={() => handleTodoArchive(todo.id)}>archive</Button>
-        ) : (
-          <Button onClick={() => handleTodoDelete(todo.id)}>delete</Button>
-        )}
-      </ButtonGroup>
+      <Paper
+        sx={{
+          display: 'flex',
+          alignContent: 'center',
+          justifyContent: 'space-between',
+          gap: 0,
+          marginBottom: 2,
+
+          elevation: 0,
+          minHeight: '50px',
+          height: 'auto',
+          width: 'auto',
+          border: 2,
+          // borderRadius: '15px',
+          borderColor: 'success.light',
+        }}
+        square
+      >
+        {showEdit ? <TodoEditForm todo={todo} handleEditForm={handleEditForm} /> : todoContent}
+      </Paper>
     </Box>
   )
 }

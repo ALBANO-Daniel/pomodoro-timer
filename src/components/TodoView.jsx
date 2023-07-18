@@ -24,6 +24,7 @@ function TodoView(props) {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          gap: 3,
         }}
       >
         <TodoCreateForm handleTodoSubmit={handleTodoSubmit} />

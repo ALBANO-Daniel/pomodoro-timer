@@ -12,7 +12,7 @@ function FeatureSwitchMenu( { handleVisibleFeature }) {
 
   return (
     <Box sx={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
-      <ButtonGroup variant="contained" aria-label="outlined primary button group">
+      <ButtonGroup variant="contained" color="success" aria-label="outlined primary button group">
         <Button onClick={ () => handleClick('timer')} disabled={choosedFeature === 'timer'}>
           Pomodoro Timer
         </Button>

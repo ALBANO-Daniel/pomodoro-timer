@@ -18,18 +18,21 @@ function TodoCreateForm({ handleTodoSubmit }) {
         display: 'flex',
         alignContent: 'center',
         justifyContent: 'center',
+        margin: 2,
         gap: 1,
       }}
     >
       <TextField
         id="outlined-multiline-static"
-        label="write new task..."
+        label="new task"
         color="success"
         multiline
         rows={2}
         defaultValue={newTodo}
         value={newTodo}
         onChange={updateValue}
+        // InputLabelProps={{ style: { fontSize: 19 } }}
+        inputProps={{ style: { fontSize: 19 } }}
       />
       <Button variant="contained" type="submit" color="success" onClick={() => handleClick()}>
         ADD
