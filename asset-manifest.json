@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/pomodoro-timer/static/css/main.7a53e60e.css",
-    "main.js": "/pomodoro-timer/static/js/main.50bb89bb.js",
+    "main.css": "/pomodoro-timer/static/css/main.a8110428.css",
+    "main.js": "/pomodoro-timer/static/js/main.47ddc61a.js",
     "static/media/clockGif.gif": "/pomodoro-timer/static/media/clockGif.c7c3274c58f239155a31.gif",
     "static/media/ps1.m4a": "/pomodoro-timer/static/media/ps1.0a55f29ac0eeed4a18a0.m4a",
     "static/media/favicon2.gif": "/pomodoro-timer/static/media/favicon2.1820a3e825b0080a41ea.gif",
     "static/media/default.m4a": "/pomodoro-timer/static/media/default.1822a0b356e1ac8cb3ba.m4a",
+    "static/media/profile.png": "/pomodoro-timer/static/media/profile.953c59fb4d1eab27926d.png",
     "index.html": "/pomodoro-timer/index.html",
-    "main.7a53e60e.css.map": "/pomodoro-timer/static/css/main.7a53e60e.css.map",
-    "main.50bb89bb.js.map": "/pomodoro-timer/static/js/main.50bb89bb.js.map"
+    "main.a8110428.css.map": "/pomodoro-timer/static/css/main.a8110428.css.map",
+    "main.47ddc61a.js.map": "/pomodoro-timer/static/js/main.47ddc61a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a53e60e.css",
-    "static/js/main.50bb89bb.js"
+    "static/css/main.a8110428.css",
+    "static/js/main.47ddc61a.js"
   ]
 }
