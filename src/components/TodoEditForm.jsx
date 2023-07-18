@@ -17,7 +17,8 @@ function TodoEditForm({ todo, handleEditForm }) {
       sx={{
         display: 'flex',
         alignContent: 'center',
-        justifyContent: 'start',
+        justifyContent: 'center',
+        width: '100%',
         gap: 1,
         margin: 2,
       }}
@@ -29,8 +30,13 @@ function TodoEditForm({ todo, handleEditForm }) {
         maxRows={4}
         value={text}
         onChange={handleChange}
-        InputLabelProps={{ style: { fontSize: 19 } }}
-        inputProps={{ style: { fontSize: 19 } }}
+        InputLabelProps={{ style: { fontSize: [15,15,19] } }}
+        inputProps={{ style: { fontSize: [15,15,19] } }}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            handleClick()
+          }
+        }}
       />
       <Button variant="contained" type="submit" color="success" onClick={() => handleClick()}>
         Save

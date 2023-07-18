@@ -1,8 +1,9 @@
-import { Box } from '@mui/material'
+import { Box, Divider, Typography } from '@mui/material'
 import { MainAppContainer } from './MainAppContainer'
 import TodoCreateForm from './TodoCreateForm'
 import TodoList from './TodoList'
 import MainAppHeaderSubheader from './MainAppHeaderSubheader'
+import TodoListArchived from './TodoListArchived'
 
 function TodoView(props) {
   const {
@@ -36,13 +37,17 @@ function TodoView(props) {
           handleTodoArchive={handleTodoArchive}
         />
       </Box>
-      <Box sx={{ backgroundColor: 'green' }}>
-        {archivedTodos.map(todo => {
-          console.log('achived list ')
-          console.log(todo.id)
-          return <Box key={todo.id}>{todo.text}</Box>
-        })}
-      </Box>
+      {archivedTodos.length !== 0 ? (
+        <Box>
+          <Divider sx={{ margin: 1, marginBottom: 3 }} />
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Typography component="h2" variant="h4">
+              Archive of Finished Tasks
+            </Typography>
+          </Box>
+          <TodoListArchived archivedTodos={archivedTodos} />
+        </Box>
+      ) : null }
     </MainAppContainer>
   )
 }

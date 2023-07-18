@@ -1,6 +1,7 @@
 import ProfileView from './ProfileView'
 
 function ProfileProvider() {
+  
   return (
     <ProfileView />
   )

@@ -20,19 +20,21 @@ const Topbar = ({ muted, handleMuted }) => {
         marginBottom: '30px',
         padding: 2,
         bgcolor: ['neutral.dark', 'neutral.dark', 'transparent'],
+        borderBottom: 4,
+        borderColor: 'success.dark',
       }}
     >
       <Box display="flex" justifyContent="space-between" >
         <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={0.5}>
           <img src={AppIcon} alt="logo" height="30px" />
-          <Typography padding={0.5}>deani.dev</Typography>
+          <Typography padding={0.5} color='success.dark' variant='h4'>deani.dev</Typography>
         </Box>
 
-        <Box display="flex">
-          <IconButton onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
+        <Box display="flex" sx={{ color:'success.dark' }}>
+          <IconButton  onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon color='success' /> : <LightModeOutlinedIcon color='success' />}
           </IconButton>
-          <IconButton onClick={handleMuted}>{muted ? <MusicOffIcon /> : <MusicNoteIcon />}</IconButton>
+          <IconButton onClick={handleMuted}>{muted ? <MusicOffIcon color='success' /> : <MusicNoteIcon color='success' />}</IconButton>
           <IconButton>
             <SettingsOutlinedIcon color="disabled" />
           </IconButton>

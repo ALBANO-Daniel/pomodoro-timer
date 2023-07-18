@@ -26,15 +26,19 @@ function TodoCreateForm({ handleTodoSubmit }) {
         id="outlined-multiline-static"
         label="new task"
         color="success"
-        multiline
+        // multiline
         rows={2}
         defaultValue={newTodo}
         value={newTodo}
         onChange={updateValue}
-        // InputLabelProps={{ style: { fontSize: 19 } }}
         inputProps={{ style: { fontSize: 19 } }}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter') {
+            handleClick()
+          }
+        }}
       />
-      <Button variant="contained" type="submit" color="success" onClick={() => handleClick()}>
+      <Button variant="contained" type="submit" color="success" disabled={newTodo == ''} onClick={() => handleClick()}>
         ADD
       </Button>
     </Box>
