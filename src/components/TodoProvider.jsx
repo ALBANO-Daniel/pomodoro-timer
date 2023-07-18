@@ -58,8 +58,6 @@ export default class TodoProvider extends Component {
         todoToBeArchived = todo
       }
     })
-    console.log('to be : ')
-    console.log(todoToBeArchived)
     this.setState({
       archivedTodos: [todoToBeArchived, ...this.state.archivedTodos],
     })
