@@ -1,10 +1,11 @@
 import { Alert, Collapse } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
+import { usePomodoroControl } from './pomodoroContext'
 
-export function AllStagesFinishedAlert(props) {
-  const { handleAreAllStagesFinished } = props
+export function AllStagesFinishedAlert() {
   const [open, setOpen] = useState(true)
+  const pomodoroControl = usePomodoroControl()
 
   return (
     <Box sx={{ alignContent: 'center', pt: 3, mr: 10 }}>
@@ -13,7 +14,7 @@ export function AllStagesFinishedAlert(props) {
           sx={{ height: '70px', pt: 2 }}
           onClose={() => {
             setOpen(false)
-            handleAreAllStagesFinished()
+            pomodoroControl.handleAreAllStagesFinished()
           }}
         >
           Pomodoro Finished !!!!

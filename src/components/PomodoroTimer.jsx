@@ -2,12 +2,15 @@ import { useTimer } from 'react-timer-hook'
 import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 import PauseCircleIcon from '@mui/icons-material/PauseCircle'
 import { Box, Stack, Typography } from '@mui/material'
+import { usePomodoroControl } from './pomodoroContext'
 
-export default function PomodoroTimer({ expiryTimestamp, handleStageFinished, index }) {
+export default function PomodoroTimer({ expiryTimestamp, index }) {
+  const pomodoroControl = usePomodoroControl()
+
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
     expiryTimestamp,
-    onExpire: handleStageFinished,
-  }) 
+    onExpire: pomodoroControl.handleStageFinished,
+  })
 
   // handle showing timer on html title
   let titleMinutes = minutes < 10 ? `0${minutes}` : minutes
@@ -16,8 +19,18 @@ export default function PomodoroTimer({ expiryTimestamp, handleStageFinished, in
   document.title = index % 2 ? titleTime + ' | pause' : titleTime + ' | work'
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', fontSize: [50,50,100], height: [200,200,300], justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
-      <Typography fontSize={[80,90,110]} >
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        fontSize: [50, 50, 100],
+        height: [200, 200, 300],
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Typography fontSize={[80, 90, 110]}>
         {minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}
       </Typography>
       <Stack>

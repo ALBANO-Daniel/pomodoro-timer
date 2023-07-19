@@ -5,8 +5,15 @@ import stageFinishedSound from '../sounds/default.m4a'
 // import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
 import allStagesFinishedSound from '../sounds/ps1.m4a'
 
-import { PomodoroView } from './PomodoroView'
 import { getStagesInSeconds } from './getStages'
+import {
+  ShouldShowTimerContext,
+  IsStageFinishedContext,
+  PomodoroControlContext,
+  AreAllStagesFinishedContext,
+  StageCurrentIndexContext,
+  ExpirationTimestampForCurrentStageContext,
+} from './pomodoroContext'
 
 export default class PomodoroProvider extends React.Component {
   constructor(props) {
@@ -17,18 +24,24 @@ export default class PomodoroProvider extends React.Component {
       isStageFinished: false,
       stageCurrentIndex: 0,
       areAllStagesFinished: false,
+      expirationTimestampForCurrentStage: null,
+    }
+    this.control = {
+      handleSubmit: this.handleSubmit,
+      handleAreAllStagesFinished: this.handleAreAllStagesFinished,
+      handleStageFinished: this.handleStageFinished,
     }
   }
-  
-  get currentStageInSeconds() {
+
+  getCurrentStageInSeconds = (stageCurrentIndex) => {
     const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
     const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
-    return pomodoroStagesInSeconds[this.state.stageCurrentIndex]
+    return pomodoroStagesInSeconds[stageCurrentIndex]
   }
 
-  get expirationTimestampForCurrentStage() {
+  getExpirationTimestampForCurrentStage = (stageCurrentIndex) => {
     const time = new Date()
-    time.setSeconds(time.getSeconds() + this.currentStageInSeconds)
+    time.setSeconds(time.getSeconds() + this.getCurrentStageInSeconds(stageCurrentIndex))
     return time
   }
 
@@ -55,7 +68,9 @@ export default class PomodoroProvider extends React.Component {
     const { stageCurrentIndex } = this.state
     if (stageCurrentIndex < 7) {
       !this.props.muted && new Audio(stageFinishedSound).play()
-      this.setState({ stageCurrentIndex: stageCurrentIndex + 1 })
+      const nextStageIndex = stageCurrentIndex + 1
+      const expirationTimestampForCurrentStage = this.getExpirationTimestampForCurrentStage(nextStageIndex)
+      this.setState({ stageCurrentIndex: nextStageIndex, expirationTimestampForCurrentStage })
     } else {
       !this.props.muted && new Audio(allStagesFinishedSound).play()
       this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
@@ -68,18 +83,21 @@ export default class PomodoroProvider extends React.Component {
 
   render() {
     return (
-      <PomodoroView
-        handleSubmit={this.handleSubmit}
-        handleTimerSettings={this.handleTimerSettings}
-        shouldShowTimer={this.state.shouldShowTimer}
-        setShouldShowTimer={this.setShouldShowTimer}
-        isStageFinished={this.state.isStageFinished}
-        handleStageFinished={this.handleStageFinished}
-        areAllStagesFinished={this.state.areAllStagesFinished}
-        handleAreAllStagesFinished={this.handleAreAllStagesFinished}
-        stageCurrentIndex={this.state.stageCurrentIndex}
-        expirationTimestampForCurrentStage={this.expirationTimestampForCurrentStage}
-      />
+      <ShouldShowTimerContext.Provider value={this.state.shouldShowTimer}>
+        <IsStageFinishedContext.Provider value={this.state.isStageFinished}>
+          <PomodoroControlContext.Provider value={this.control}>
+            <AreAllStagesFinishedContext.Provider value={this.state.areAllStagesFinished}>
+              <StageCurrentIndexContext.Provider value={this.state.stageCurrentIndex}>
+                <ExpirationTimestampForCurrentStageContext.Provider
+                  value={this.state.expirationTimestampForCurrentStage}
+                >
+                  {this.props.children}
+                </ExpirationTimestampForCurrentStageContext.Provider>
+              </StageCurrentIndexContext.Provider>
+            </AreAllStagesFinishedContext.Provider>
+          </PomodoroControlContext.Provider>
+        </IsStageFinishedContext.Provider>
+      </ShouldShowTimerContext.Provider>
     )
   }
 }

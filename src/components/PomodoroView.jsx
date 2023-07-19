@@ -3,31 +3,19 @@ import PomodoroForm from '../components/PomodoroForm'
 import { AllStagesFinishedAlert } from './AllStagesFinishedAlert'
 import { MainAppContainer } from './MainAppContainer'
 import { StageProgressIndicator } from './StageProgressIndicator'
+import { useAreAllStagesFinished, useShouldShowTimer, useIsStageFinished } from './pomodoroContext'
 
-export function PomodoroView(props) {
-  const {
-    handleSubmit,
-    areAllStagesFinished,
-    shouldShowTimer,
-    isStageFinished,
-    handleStageFinished,
-    handleAreAllStagesFinished,
-    stageCurrentIndex,
-    expirationTimestampForCurrentStage,
-  } = props
+export function PomodoroView() {
+  const areAllStagesFinished = useAreAllStagesFinished()
+  const shouldShowTimer = useShouldShowTimer()
+  const isStageFinished = useIsStageFinished()
 
   return (
     <MainAppContainer>
       <Box sx={{ pl: 1 }}>
-        <PomodoroForm handleSubmit={handleSubmit} shouldShowTimer={shouldShowTimer} isStageFinished={isStageFinished} />
-        {areAllStagesFinished && <AllStagesFinishedAlert handleAreAllStagesFinished={handleAreAllStagesFinished} />}
-        {shouldShowTimer && !areAllStagesFinished && (
-          <StageProgressIndicator
-            handleStageFinished={handleStageFinished}
-            stageCurrentIndex={stageCurrentIndex}
-            expirationTimestampForCurrentStage={expirationTimestampForCurrentStage}
-          />
-        )}
+        <PomodoroForm shouldShowTimer={shouldShowTimer} isStageFinished={isStageFinished} />
+        {areAllStagesFinished && <AllStagesFinishedAlert />}
+        {shouldShowTimer && !areAllStagesFinished && <StageProgressIndicator />}
       </Box>
     </MainAppContainer>
   )

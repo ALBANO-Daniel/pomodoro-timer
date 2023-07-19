@@ -2,8 +2,12 @@ import { Box } from '@mui/system'
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
 import MainAppHeaderSubheader from './MainAppHeaderSubheader'
 import React from 'react'
+import { usePomodoroControl, useShouldShowTimer } from './pomodoroContext'
 
-function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
+function PomodoroForm({ pomodoroFinished }) {
+  const shouldShowTimer = useShouldShowTimer()
+  const pomodoroControl = usePomodoroControl()
+
   if (shouldShowTimer === false) {
     document.title = 'Pomodoro Timer'
   }
@@ -18,7 +22,7 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
           justifyContent: 'center',
         }}
       >
-        <form method="post" onSubmit={handleSubmit}>
+        <form method="post" onSubmit={pomodoroControl.handleSubmit}>
           <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5, 1.5] }}>
             <FormLabel id="workTime">Work periods</FormLabel>
             <RadioGroup size="small" aria-labelledby="choose work time" defaultValue={25} name="workTime">
