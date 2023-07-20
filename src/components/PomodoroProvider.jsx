@@ -32,18 +32,16 @@ export default class PomodoroProvider extends React.Component {
     }
   }
 
-  getCurrentStageInSeconds = (stageCurrentIndex) => {
-    const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
-    const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
-    return pomodoroStagesInSeconds[stageCurrentIndex]
+  
+  // values from Form into Obj
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const formData = new FormData(form)
+    const formDataJson = Object.fromEntries(formData.entries())
+    this.handleTimerSettings(formDataJson)
   }
-
-  getExpirationTimestampForCurrentStage = (stageCurrentIndex) => {
-    const time = new Date()
-    time.setSeconds(time.getSeconds() + this.getCurrentStageInSeconds(stageCurrentIndex))
-    return time
-  }
-
+  
   handleTimerSettings = (timerSettings) => {
     this.setState({
       timerSettings,
@@ -54,13 +52,16 @@ export default class PomodoroProvider extends React.Component {
     })
   }
 
-  // values from Form into Obj
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const form = event.target
-    const formData = new FormData(form)
-    const formDataJson = Object.fromEntries(formData.entries())
-    this.handleTimerSettings(formDataJson)
+  getCurrentStageInSeconds = (stageCurrentIndex) => {
+    const { workTime, breakTime, longPause } = this.state.timerSettings || { workTime: 0, breakTime: 0, longPause: 0 }
+    const pomodoroStagesInSeconds = getStagesInSeconds({ workTime, breakTime, longPause })
+    return pomodoroStagesInSeconds[stageCurrentIndex]
+  }
+
+  getExpirationTimestampForCurrentStage = (stageCurrentIndex) => {
+    const time = new Date()
+    time.setSeconds(time.getSeconds() + this.getCurrentStageInSeconds(stageCurrentIndex))
+    return time
   }
 
   handleStageFinished = () => {
