@@ -2,10 +2,9 @@ import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import PomodoroChips from '../components/PomodoroChips'
 import PomodoroTimer from '../components/PomodoroTimer'
-import { useExpirationTimestampForCurrentStage, useStageCurrentIndex } from './pomodoroContext'
+import {  useStageCurrentIndex } from './pomodoroContext'
 
 export function StageProgressIndicator() {
-  const expirationTimestampForCurrentStage = useExpirationTimestampForCurrentStage()
   const stageCurrentIndex = useStageCurrentIndex()
 
   return (
@@ -17,7 +16,6 @@ export function StageProgressIndicator() {
         <PomodoroChips index={stageCurrentIndex} />
       </Box>
       <PomodoroTimer
-        expiryTimestamp={expirationTimestampForCurrentStage}
         key={stageCurrentIndex}
         index={stageCurrentIndex}
       />

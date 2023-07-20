@@ -4,11 +4,11 @@ import PauseCircleIcon from '@mui/icons-material/PauseCircle'
 import { Box, Stack, Typography } from '@mui/material'
 import { usePomodoroControl } from './pomodoroContext'
 
-export default function PomodoroTimer({ expiryTimestamp, index }) {
+export default function PomodoroTimer({ index }) {
   const pomodoroControl = usePomodoroControl()
 
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
-    expiryTimestamp,
+    expiryTimestamp: pomodoroControl.getExpirationTimestampForCurrentStage(index),
     onExpire: pomodoroControl.handleStageFinished,
   })
 

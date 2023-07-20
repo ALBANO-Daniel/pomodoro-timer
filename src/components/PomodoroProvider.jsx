@@ -12,7 +12,6 @@ import {
   PomodoroControlContext,
   AreAllStagesFinishedContext,
   StageCurrentIndexContext,
-  ExpirationTimestampForCurrentStageContext,
 } from './pomodoroContext'
 
 export default class PomodoroProvider extends React.Component {
@@ -24,12 +23,12 @@ export default class PomodoroProvider extends React.Component {
       isStageFinished: false,
       stageCurrentIndex: 0,
       areAllStagesFinished: false,
-      expirationTimestampForCurrentStage: null,
     }
     this.control = {
       handleSubmit: this.handleSubmit,
       handleAreAllStagesFinished: this.handleAreAllStagesFinished,
       handleStageFinished: this.handleStageFinished,
+      getExpirationTimestampForCurrentStage: this.getExpirationTimestampForCurrentStage,
     }
   }
 
@@ -69,13 +68,17 @@ export default class PomodoroProvider extends React.Component {
     if (stageCurrentIndex < 7) {
       !this.props.muted && new Audio(stageFinishedSound).play()
       const nextStageIndex = stageCurrentIndex + 1
-      const expirationTimestampForCurrentStage = this.getExpirationTimestampForCurrentStage(nextStageIndex)
-      this.setState({ stageCurrentIndex: nextStageIndex, expirationTimestampForCurrentStage })
+      this.setState({ stageCurrentIndex: nextStageIndex })
     } else {
       !this.props.muted && new Audio(allStagesFinishedSound).play()
       this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
     }
   }
+  // timerSettings: null,
+  //     shouldShowTimer: false,
+  //     isStageFinished: false,
+  //     stageCurrentIndex: 0,
+  //     areAllStagesFinished: false,
 
   handleAreAllStagesFinished = () => {
     this.setState({ shouldShowTimer: false })
@@ -88,11 +91,7 @@ export default class PomodoroProvider extends React.Component {
           <PomodoroControlContext.Provider value={this.control}>
             <AreAllStagesFinishedContext.Provider value={this.state.areAllStagesFinished}>
               <StageCurrentIndexContext.Provider value={this.state.stageCurrentIndex}>
-                <ExpirationTimestampForCurrentStageContext.Provider
-                  value={this.state.expirationTimestampForCurrentStage}
-                >
-                  {this.props.children}
-                </ExpirationTimestampForCurrentStageContext.Provider>
+                {this.props.children}
               </StageCurrentIndexContext.Provider>
             </AreAllStagesFinishedContext.Provider>
           </PomodoroControlContext.Provider>
