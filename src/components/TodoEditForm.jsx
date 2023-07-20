@@ -46,26 +46,3 @@ function TodoEditForm({ todo, handleEditForm }) {
 }
 
 export default TodoEditForm
-
-// <Box
-//       sx={{
-//         display: 'flex',
-//         alignContent: 'center',
-//         justifyContent: 'center',
-//         gap: 1,
-//       }}
-//     >
-//       <TextField
-//         id="outlined-multiline-static"
-//         label="write new task..."
-//         color="success"
-//         multiline
-//         rows={2}
-//         defaultValue={newTodo}
-//         value={newTodo}
-//         onChange={updateValue}
-//       />
-//       <Button variant="contained" type="submit" color="success" onClick={() => handleClick()}>
-//         ADD
-//       </Button>
-//     </Box>

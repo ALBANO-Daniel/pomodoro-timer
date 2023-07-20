@@ -20,8 +20,6 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
 
   const todoContent = (
     <React.Fragment>
-      {/* <Box sx={{ backgroundColor: 'transparent', fontSize: '20px', lineBreak: 'auto', height: 'auto', margin: 1, overflow: 'auto' }}> */}
-      {/* <Box sx={{ display: 'flex', justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}> */}
       <Button onClick={() => handleCompleteClick()}>
         {todo.complete ? (
           <CheckBoxIcon fontSize="small" color="success" />
@@ -29,7 +27,6 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
           <CropSquareIcon fontSize="small" color="success" />
         )}
       </Button>
-      {/* </Box> */}
       <Typography
         sx={{
           fontSize: ['15px', '15px', '19px'],
@@ -43,7 +40,6 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
       >
         {todo.text}
       </Typography>
-      {/* </Box> */}
       <Box sx={{ display: 'flex', flexDirection: ['column', 'column', 'row'], margin: 0 }}>
         <Button
           variant="outlined"
@@ -112,7 +108,6 @@ function Todo({ todo, handleTodoEdit, handleTodoComplete, handleTodoDelete, hand
           borderColor: 'success.light',
           backgroundColor: 'transparent',
         }}
-        square
       >
         {showEdit ? <TodoEditForm todo={todo} handleEditForm={handleEditForm} /> : todoContent}
       </Paper>

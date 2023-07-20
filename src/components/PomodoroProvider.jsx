@@ -74,11 +74,6 @@ export default class PomodoroProvider extends React.Component {
       this.setState({ stageCurrentIndex: 0, areAllStagesFinished: true, isStageFinished: true })
     }
   }
-  // timerSettings: null,
-  //     shouldShowTimer: false,
-  //     isStageFinished: false,
-  //     stageCurrentIndex: 0,
-  //     areAllStagesFinished: false,
 
   handleAreAllStagesFinished = () => {
     this.setState({ shouldShowTimer: false })
