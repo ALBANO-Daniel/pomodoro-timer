@@ -27,7 +27,7 @@ export default class ProfileProvider extends Component {
   handlePomodoroArchived = (time, index) => {
     const totalTime = time
 
-    
+
 
     if(index === 7){
       this.setState({
