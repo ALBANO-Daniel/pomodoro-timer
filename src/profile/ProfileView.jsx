@@ -7,8 +7,12 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import PunchClockIcon from '@mui/icons-material/PunchClock'
 
 import profileImage from '../assets/images/profile.png'
+import TodoListArchived from './TodoListArchived'
 
 function ProfileView() {
+
+  const archivedTodos = [{}]
+
   return (
     <MainAppContainer>
       <MainAppHeaderSubheader
@@ -65,6 +69,7 @@ function ProfileView() {
           <Typography>BigPauses:</Typography>
         </Box>
       </Box>
+      <TodoListArchived archivedTodos={archivedTodos} />
     </MainAppContainer>
   )
 }

@@ -3,7 +3,6 @@ import { MainAppContainer } from '../assets/components/MainAppContainer'
 import TodoCreateForm from './TodoCreateForm'
 import TodoList from './TodoList'
 import MainAppHeaderSubheader from '../assets/components/MainAppHeaderSubheader'
-import TodoListArchived from './TodoListArchived'
 
 function TodoView(props) {
   const {
@@ -45,7 +44,6 @@ function TodoView(props) {
               Archive of Finished Tasks
             </Typography>
           </Box>
-          <TodoListArchived archivedTodos={archivedTodos} />
         </Box>
       ) : null }
     </MainAppContainer>

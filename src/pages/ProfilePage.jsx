@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import ProfileProvider from '../profile/ProfileProvider'
+import ProfileView from '../profile/ProfileView'
 
 function ProfilePage({ visible }) {
   const visibleClassName = visible ? 'block' : 'none'
@@ -8,7 +8,7 @@ function ProfilePage({ visible }) {
 
   return (
     <Box sx={{ display: visibleClassName }}>
-      <ProfileProvider />
+      <ProfileView />
     </Box>
   )
 }
