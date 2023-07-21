@@ -1,17 +1,11 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-// import PomodoroProvider from './components/PomodoroProvider'
-import Topbar from './components/Topbar'
+import Topbar from './assets/components/Topbar'
 import { ColorModeContext, useMode } from './theme'
-// import { StatisticsContext } from './context/Statistics'
 import { useState } from 'react'
-// import Route from './components/Route'
-// import Home from './pages/Home'
-import FeaturesMenu from './components/FeatureSwitchMenu'
+import FeaturesMenu from './assets/components/FeatureSwitchMenu'
 import PomodoroPage from './pages/PomodoroPage'
 import ProfilePage from './pages/ProfilePage'
 import TodoPage from './pages/TodoPage'
-// import PomodoroPage from './pages/PomodoroPage'
-// import TodosPage from './pages/TodosPage'
 
 function App() {
   const [muted, setMuted] = useState(false)
@@ -27,11 +21,8 @@ function App() {
     setVisibleFeature(feature)
   }
 
-  // const statisticsObject = {}
-
   return (
     <ColorModeContext.Provider value={colorMode}>
-      {/* <StatisticsContext.Provider value={statisticsObject}> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
@@ -49,7 +40,6 @@ function App() {
           </main>
         </div>
       </ThemeProvider>
-      {/* </StatisticsContext.Provider> */}
     </ColorModeContext.Provider>
   )
 }

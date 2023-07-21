@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import PomodoroChips from '../components/PomodoroChips'
-import PomodoroTimer from '../components/PomodoroTimer'
+import PomodoroChips from './PomodoroChips'
+import PomodoroTimer from './PomodoroTimer'
 import {  useStageCurrentIndex } from './pomodoroContext'
 
 export function StageProgressIndicator() {

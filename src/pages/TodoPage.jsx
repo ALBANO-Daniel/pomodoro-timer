@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import TodoProvider from '../components/TodoProvider'
+import TodoProvider from '../todo/TodoProvider'
 
 function TodoPage({ visible }) {
   const visibleClassName = visible ? 'block' : 'none'

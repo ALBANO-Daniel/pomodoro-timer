@@ -1,7 +1,7 @@
 import { Box } from '@mui/system'
-import PomodoroForm from '../components/PomodoroForm'
+import PomodoroForm from '../pomodoro/PomodoroForm'
 import { AllStagesFinishedAlert } from './AllStagesFinishedAlert'
-import { MainAppContainer } from './MainAppContainer'
+import { MainAppContainer } from '../assets/components/MainAppContainer'
 import { StageProgressIndicator } from './StageProgressIndicator'
 import { useAreAllStagesFinished, useShouldShowTimer, useIsStageFinished } from './pomodoroContext'
 

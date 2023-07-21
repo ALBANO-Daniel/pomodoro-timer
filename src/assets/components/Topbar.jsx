@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { ColorModeContext } from '../theme'
+import { ColorModeContext } from '../../theme'
 import { Box, Container, IconButton, Typography, useTheme } from '@mui/material'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
@@ -7,7 +7,7 @@ import MusicOffIcon from '@mui/icons-material/MusicOff'
 import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import AppIcon from '../images/favicon2.gif'
+import AppIcon from '../images/favicon.gif'
 
 const Topbar = ({ muted, handleMuted }) => {
   const theme = useTheme()

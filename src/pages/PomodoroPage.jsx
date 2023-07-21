@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
-import PomodoroProvider from '../components/PomodoroProvider'
-import { PomodoroView } from '../components/PomodoroView'
+import PomodoroProvider from '../pomodoro/PomodoroProvider'
+import { PomodoroView } from '../pomodoro/PomodoroView'
 
 function PomodoroPage({ muted, visible }) {
   const visibleClassName = visible ? 'block' : 'none'

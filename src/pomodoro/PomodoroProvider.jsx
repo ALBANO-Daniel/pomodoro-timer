@@ -1,9 +1,9 @@
 import React from 'react'
 
 // import stageFinishedSound from '../sounds/windowsXP.opus'
-import stageFinishedSound from '../sounds/default.m4a'
+import stageFinishedSound from '../assets/sounds/default.m4a'
 // import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
-import allStagesFinishedSound from '../sounds/ps1.m4a'
+import allStagesFinishedSound from '../assets/sounds/ps1.m4a'
 
 import { getStagesInSeconds } from './getStages'
 import {
