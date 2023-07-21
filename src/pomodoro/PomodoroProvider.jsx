@@ -64,8 +64,13 @@ export default class PomodoroProvider extends React.Component {
     return time
   }
 
+  handleUserHistory = () => {
+    
+  }
+
   handleStageFinished = () => {
     const { stageCurrentIndex } = this.state
+
     if (stageCurrentIndex < 7) {
       !this.props.muted && new Audio(stageFinishedSound).play()
       const nextStageIndex = stageCurrentIndex + 1

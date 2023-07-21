@@ -3,14 +3,18 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 import PauseCircleIcon from '@mui/icons-material/PauseCircle'
 import { Box, Stack, Typography } from '@mui/material'
 import { usePomodoroControl } from './pomodoroContext'
+import { useEffect } from 'react'
 
 export default function PomodoroTimer({ index }) {
   const pomodoroControl = usePomodoroControl()
 
+  const expiryTimestamp = pomodoroControl.getExpirationTimestampForCurrentStage(index)
+  
   const { seconds, minutes, isRunning, pause, resume } = useTimer({
-    expiryTimestamp: pomodoroControl.getExpirationTimestampForCurrentStage(index),
+    expiryTimestamp,
     onExpire: pomodoroControl.handleStageFinished,
   })
+  
 
   // handle showing timer on html title
   let titleMinutes = minutes < 10 ? `0${minutes}` : minutes

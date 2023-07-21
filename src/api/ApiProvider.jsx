@@ -6,8 +6,8 @@ export default class ProfileProvider extends Component {
     super(props)
     this.state = {
       todosArchived: [{}],
-      workTimeInSeconds: 0,
-      pauseTimeInSeconds: 0,
+      workTimeInMinutes: 0,
+      pauseTimeInMinutes: 0,
       completedWorkTimes: 0,
       completedPauseTimes: 0,
       incompletedPomodoros: 0,
@@ -26,9 +26,6 @@ export default class ProfileProvider extends Component {
 
   handlePomodoroArchived = (time, index) => {
     const totalTime = time
-
-
-
     if(index === 7){
       this.setState({
         completedPomodoros: this.state.completedPomodoros + 1,
