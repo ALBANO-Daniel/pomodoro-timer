@@ -1,8 +1,8 @@
 import { Box, Divider, Typography } from '@mui/material'
-import { MainAppContainer } from '../assets/components/MainAppContainer'
+import { MainAppContainer } from '../components/MainAppContainer'
 import TodoCreateForm from './TodoCreateForm'
 import TodoList from './TodoList'
-import MainAppHeaderSubheader from '../assets/components/MainAppHeaderSubheader'
+import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 
 function TodoView(props) {
   const {

@@ -1,10 +1,34 @@
+import { Component, useContext } from 'react'
 import ProfileView from './ProfileView'
+import { ApiControlContext } from '../api/apiContext'
 
-function ProfileProvider() {
-  
-  return (
-    <ProfileView />
-  )
+export class Profile extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+
+    }
+  }
+
+  render() {
+
+    return (
+      <ProfileView />
+    )
+  }
 }
 
-export default ProfileProvider
+
+
+
+export default function ProfileProvider(props) {
+  const { handlePomodoroArchived } = useContext(ApiControlContext)
+  
+
+
+  return (
+    <Profile>
+      {props.children}
+    </Profile>
+  )
+}

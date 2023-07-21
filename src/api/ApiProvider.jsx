@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { ApiControlContext, TodosArchivedContext } from './apiContext'
 
-export default class ProfileProvider extends Component {
+export default class ApiProvider extends Component {
   constructor(props) {
     super(props)
     this.state = {

@@ -1,6 +1,6 @@
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
-import { MainAppContainer } from '../assets/components/MainAppContainer'
-import MainAppHeaderSubheader from '../assets/components/MainAppHeaderSubheader'
+import { MainAppContainer } from '../components/MainAppContainer'
+import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 
 import PersonIcon from '@mui/icons-material/Person'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'

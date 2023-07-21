@@ -1,6 +1,6 @@
 import { Box } from '@mui/system'
 import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
-import MainAppHeaderSubheader from '../assets/components/MainAppHeaderSubheader'
+import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 import React from 'react'
 import { usePomodoroControl, useShouldShowTimer } from './pomodoroContext'
 

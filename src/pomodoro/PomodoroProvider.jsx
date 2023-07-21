@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 // import stageFinishedSound from '../sounds/windowsXP.opus'
 import stageFinishedSound from '../assets/sounds/default.m4a'
@@ -13,8 +13,9 @@ import {
   AreAllStagesFinishedContext,
   StageCurrentIndexContext,
 } from './pomodoroContext'
+import { ApiControlContext } from '../api/apiContext'
 
-export default class PomodoroProvider extends React.Component {
+export class Pomodoro extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +32,6 @@ export default class PomodoroProvider extends React.Component {
       getExpirationTimestampForCurrentStage: this.getExpirationTimestampForCurrentStage,
     }
   }
-
   
   // values from Form into Obj
   handleSubmit = (event) => {
@@ -65,7 +65,7 @@ export default class PomodoroProvider extends React.Component {
   }
 
   handleUserHistory = () => {
-    
+    this.props.handleTodoArchived()
   }
 
   handleStageFinished = () => {
@@ -100,4 +100,16 @@ export default class PomodoroProvider extends React.Component {
       </ShouldShowTimerContext.Provider>
     )
   }
+}
+
+
+export default function PomodoroProvider(props) {
+  const { handleTodoArchived } = useContext(ApiControlContext)
+
+
+  return (
+    <Pomodoro handleTodoArchived={handleTodoArchived}>
+      {props.children}
+    </Pomodoro>
+  )
 }

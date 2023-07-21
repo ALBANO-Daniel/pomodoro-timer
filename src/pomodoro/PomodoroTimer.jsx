@@ -3,7 +3,6 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 import PauseCircleIcon from '@mui/icons-material/PauseCircle'
 import { Box, Stack, Typography } from '@mui/material'
 import { usePomodoroControl } from './pomodoroContext'
-import { useEffect } from 'react'
 
 export default function PomodoroTimer({ index }) {
   const pomodoroControl = usePomodoroControl()
