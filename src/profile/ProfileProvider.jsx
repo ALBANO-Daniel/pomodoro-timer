@@ -3,32 +3,18 @@ import ProfileView from './ProfileView'
 import { ApiControlContext } from '../api/apiContext'
 
 export class Profile extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {
-
-    return (
-      <ProfileView />
-    )
+    return <ProfileView />
   }
 }
 
-
-
-
 export default function ProfileProvider(props) {
   const { handlePomodoroArchived } = useContext(ApiControlContext)
-  
 
-
-  return (
-    <Profile handlePomodoroArchived={handlePomodoroArchived}>
-      {props.children}
-    </Profile>
-  )
+  return <Profile handlePomodoroArchived={handlePomodoroArchived}>{props.children}</Profile>
 }
