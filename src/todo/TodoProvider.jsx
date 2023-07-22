@@ -12,14 +12,16 @@ export class Todo extends Component {
       handleTodoEdit: this.handleTodoEdit,
       handleTodoComplete: this.handleTodoComplete,
       handleTodoDelete: this.handleTodoDelete,
+      // WIP
       handleTodoArchive: this.handleTodoArchive,
     }
   }
 
   handleTodoSubmit = (text) => {
-    let id = Math.floor(Math.random() * 99999)
+    const date = new Date()
+    const todoDate = date.getTime()
     this.setState({
-      todos: [{ id: id, text: text, complete: false }, ...this.state.todos],
+      todos: [{ id: todoDate, text: text, complete: false, date: todoDate }, ...this.state.todos],
     })
   }
 
