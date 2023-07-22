@@ -1,9 +1,11 @@
 import { Box, Button, TextField } from '@mui/material'
 import { useState } from 'react'
+import { useTodosControlContext } from './todoContext'
 
-function TodoCreateForm({ handleTodoSubmit }) {
+function TodoCreateForm() {
   const [newTodo, setNewTodo] = useState('')
-
+  const { handleTodoSubmit } = useTodosControlContext()
+ 
   const updateValue = (event) => {
     setNewTodo(event.target.value)
   }

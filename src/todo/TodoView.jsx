@@ -1,20 +1,10 @@
-import { Box, Divider, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import { MainAppContainer } from '../components/MainAppContainer'
 import TodoCreateForm from './TodoCreateForm'
 import TodoList from './TodoList'
 import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 
-function TodoView(props) {
-  const {
-    todos,
-    archivedTodos,
-    handleTodoSubmit,
-    handleTodoEdit,
-    handleTodoComplete,
-    handleTodoDelete,
-    handleTodoArchive,
-  } = props
-
+function TodoView() {
   return (
     <MainAppContainer>
       <MainAppHeaderSubheader header={'Your List of Tasks'} subheader={'create, edit, complete and delete: '} />
@@ -27,25 +17,9 @@ function TodoView(props) {
           gap: 3,
         }}
       >
-        <TodoCreateForm handleTodoSubmit={handleTodoSubmit} />
-        <TodoList
-          todos={todos}
-          handleTodoEdit={handleTodoEdit}
-          handleTodoComplete={handleTodoComplete}
-          handleTodoDelete={handleTodoDelete}
-          handleTodoArchive={handleTodoArchive}
-        />
+        <TodoCreateForm />
+        <TodoList />
       </Box>
-      {archivedTodos.length !== 0 ? (
-        <Box>
-          <Divider sx={{ margin: 1, marginBottom: 3 }} />
-          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Typography component="h2" variant="h4">
-              Archive of Finished Tasks
-            </Typography>
-          </Box>
-        </Box>
-      ) : null }
     </MainAppContainer>
   )
 }

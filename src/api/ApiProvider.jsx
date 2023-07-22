@@ -1,13 +1,22 @@
 import { Component } from 'react'
-import { ApiControlContext, TodosArchivedContext } from './apiContext'
+import {
+  ApiControlContext,
+  CompletedPauseTimesContext,
+  CompletedPomodorosContext,
+  CompletedWorkTimesContext,
+  IncompletedPomodorosContext,
+  PauseTimesInMinutesContext,
+  TodosArchivedContext,
+  WorkTimesInMinutesContext,
+} from './apiContext'
 
 export default class ApiProvider extends Component {
   constructor(props) {
     super(props)
     this.state = {
       todosArchived: [{}],
-      workTimeInMinutes: 0,
-      pauseTimeInMinutes: 0,
+      workTimesInMinutes: 0,
+      pauseTimesInMinutes: 0,
       completedWorkTimes: 0,
       completedPauseTimes: 0,
       incompletedPomodoros: 0,
@@ -15,10 +24,14 @@ export default class ApiProvider extends Component {
     }
     this.control = {
       handleTodoArchived: this.handleTodoArchived,
+      handlePomodoroArchived: this.handlePomodoroArchived,
     }
   }
 
   handleTodoArchived = (todo) => {
+    console.log('archived todo: ')
+    console.log(todo)
+    
     this.setState({
       todosArchived: [todo, ...this.state.todosArchived],
     })
@@ -26,7 +39,7 @@ export default class ApiProvider extends Component {
 
   handlePomodoroArchived = (time, index) => {
     const totalTime = time
-    if(index === 7){
+    if (index === 7) {
       this.setState({
         completedPomodoros: this.state.completedPomodoros + 1,
       })
@@ -38,7 +51,6 @@ export default class ApiProvider extends Component {
 
     this.setState({
       lifetimeInSeconds: this.state.lifetimeInSeconds + totalTime,
-
     })
   }
 
@@ -46,7 +58,19 @@ export default class ApiProvider extends Component {
     return (
       <ApiControlContext.Provider value={this.control}>
         <TodosArchivedContext.Provider value={this.state.todosArchived}>
-          {this.props.children}
+          <WorkTimesInMinutesContext.Provider value={this.state.workTimesInMinutes}>
+            <PauseTimesInMinutesContext.Provider value={this.state.workTimesInMinutes}>
+              <CompletedWorkTimesContext.Provider value={this.state.completedWorkTimes}>
+                <CompletedPauseTimesContext.Provider value={this.state.completedPauseTimes}>
+                  <IncompletedPomodorosContext.Provider value={this.state.incompletedPomodoros}>
+                    <CompletedPomodorosContext.Provider value={this.state.completedPomodoros}>
+                      {this.props.children}
+                    </CompletedPomodorosContext.Provider>
+                  </IncompletedPomodorosContext.Provider>
+                </CompletedPauseTimesContext.Provider>
+              </CompletedWorkTimesContext.Provider>
+            </PauseTimesInMinutesContext.Provider>
+          </WorkTimesInMinutesContext.Provider>
         </TodosArchivedContext.Provider>
       </ApiControlContext.Provider>
     )

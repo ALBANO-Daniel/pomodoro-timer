@@ -1,4 +1,4 @@
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
 import { MainAppContainer } from '../components/MainAppContainer'
 import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 
@@ -70,6 +70,17 @@ function ProfileView() {
         </Box>
       </Box>
       <TodoListArchived archivedTodos={archivedTodos} />
+
+      {archivedTodos.length !== 0 ? (
+        <Box>
+          <Divider sx={{ margin: 1, marginBottom: 3 }} />
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Typography component="h2" variant="h4">
+              Archive of Finished Tasks
+            </Typography>
+          </Box>
+        </Box>
+      ) : null }
     </MainAppContainer>
   )
 }

@@ -1,12 +1,18 @@
 import { Component } from 'react'
-import TodoView from './TodoView'
+import { TodosContext, TodosControlContext } from './todoContext'
 
-export default class TodoProvider extends Component {
+export class Todo extends Component {
   constructor(props) {
     super(props)
     this.state = {
       todos: [],
-      archivedTodos: [],
+    }
+    this.control = {
+      handleTodoSubmit: this.handleTodoSubmit,
+      handleTodoEdit: this.handleTodoEdit,
+      handleTodoComplete: this.handleTodoComplete,
+      handleTodoDelete: this.handleTodoDelete,
+      handleTodoArchive: this.handleTodoArchive,
     }
   }
 
@@ -50,31 +56,31 @@ export default class TodoProvider extends Component {
     this.setState({ todos: updatedTodos })
   }
 
-  handleTodoArchive = (id) => {
-    let updatedTodos = this.state.todos
-    let todoToBeArchived
-    updatedTodos.map((todo) => {
-      if (todo.id === id) {
-        todoToBeArchived = todo
-      }
-    })
-    this.setState({
-      archivedTodos: [todoToBeArchived, ...this.state.archivedTodos],
-    })
-    this.handleTodoDelete(id)
-  }
+  // handleTodoArchive = (id) => {
+  //   let updatedTodos = this.state.todos
+  //   let todoToBeArchived
+  //   updatedTodos.map((todo) => {
+  //     if (todo.id === id) {
+  //       todoToBeArchived = todo
+  //     }
+  //   })
+  //   this.setState({
+  //     archivedTodos: [todoToBeArchived, ...this.state.archivedTodos],
+  //   })
+  //   this.handleTodoDelete(id)
+  // }
 
   render() {
     return (
-      <TodoView
-        todos={this.state.todos}
-        archivedTodos = {this.state.archivedTodos}
-        handleTodoSubmit={this.handleTodoSubmit}
-        handleTodoEdit={this.handleTodoEdit}
-        handleTodoComplete={this.handleTodoComplete}
-        handleTodoDelete={this.handleTodoDelete}
-        handleTodoArchive={this.handleTodoArchive}
-      />
+      <TodosContext.Provider value={this.state.todos}>
+        <TodosControlContext.Provider value={this.control}>
+          {this.props.children}
+        </TodosControlContext.Provider>
+      </TodosContext.Provider>
     )
   }
+}
+
+export default function TodoProvider(props) {
+  return <Todo>{props.children}</Todo>
 }

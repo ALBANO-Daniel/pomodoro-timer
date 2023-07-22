@@ -27,7 +27,7 @@ export default function ProfileProvider(props) {
 
 
   return (
-    <Profile>
+    <Profile handlePomodoroArchived={handlePomodoroArchived}>
       {props.children}
     </Profile>
   )

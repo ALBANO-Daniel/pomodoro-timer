@@ -1,7 +1,10 @@
 import { Box } from '@mui/material'
 import Todo from './Todo'
+import { useTodosContext } from './todoContext'
 
-function TodoList({ todos, handleTodoEdit, handleTodoComplete, handleTodoDelete, handleTodoArchive }) {
+function TodoList() {
+  const todos = useTodosContext()
+
   return (
     <Box>
       {todos.map((todo) => {
@@ -9,10 +12,6 @@ function TodoList({ todos, handleTodoEdit, handleTodoComplete, handleTodoDelete,
           <Todo
             key={todo.id}
             todo={todo}
-            handleTodoEdit={handleTodoEdit}
-            handleTodoComplete={handleTodoComplete}
-            handleTodoDelete={handleTodoDelete}
-            handleTodoArchive={handleTodoArchive}
           />
         )
       })}
