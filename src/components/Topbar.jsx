@@ -22,8 +22,6 @@ const Topbar = ({ muted, handleMuted }) => {
         bgcolor: ['neutral.dark', 'neutral.dark', 'transparent'],
         borderBottom: 4,
         borderColor: 'success.dark',
-        borderBottom: 4,
-        borderColor: 'success.dark',
       }}
     >
       <Box display="flex" justifyContent="space-between" >
@@ -35,11 +33,7 @@ const Topbar = ({ muted, handleMuted }) => {
         <Box display="flex" sx={{ color:'success.dark' }}>
           <IconButton  onClick={colorMode.toggleColorMode}>
             {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon color='success' /> : <LightModeOutlinedIcon color='success' />}
-        <Box display="flex" sx={{ color:'success.dark' }}>
-          <IconButton  onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon color='success' /> : <LightModeOutlinedIcon color='success' />}
           </IconButton>
-          <IconButton onClick={handleMuted}>{muted ? <MusicOffIcon color='success' /> : <MusicNoteIcon color='success' />}</IconButton>
           <IconButton onClick={handleMuted}>{muted ? <MusicOffIcon color='success' /> : <MusicNoteIcon color='success' />}</IconButton>
           <IconButton>
             <SettingsOutlinedIcon color="disabled" />
