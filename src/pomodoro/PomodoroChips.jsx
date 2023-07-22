@@ -2,7 +2,6 @@ import { Box, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import PomodoroIcon from '../assets/images/pomme.png'
 import PomodoroIconWhite from '../assets/images/pommeWhite.png'
-// import PomodoroFinishedIcon from '../assets/images/pommeEnd2.png'
 import PomodoroFinishedIcon from '../assets/images/appleEnd.png'
 import PomodoroFinishedIconWhite from '../assets/images/appleEndWhite.png'
 
@@ -32,7 +31,7 @@ export const PomodoroChip = (props) => {
 
   const theme = useTheme()
   const mode = theme.palette.mode
-  
+
   // handle green for dark mode
   if ((color === 'green' && mode === 'dark')) {
     color = 'lime'
