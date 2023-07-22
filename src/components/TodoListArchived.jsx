@@ -3,10 +3,10 @@ import { Box, Paper } from '@mui/material'
 function TodoListArchived({ archivedTodos }) {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: 3 }}>
-      {archivedTodos.map((todo) => {
+      {archivedTodos.map(archivedTodo => {
         return (
           <Paper
-            key={todo.id}
+            key={archivedTodo.id}
             sx={{
               display: 'flex',
               alignContent: 'center',
@@ -25,7 +25,7 @@ function TodoListArchived({ archivedTodos }) {
               backgroundColor: 'transparent',
             }}
           >
-            {todo.text}
+            {archivedTodo.text}
           </Paper>
         )
       })}
