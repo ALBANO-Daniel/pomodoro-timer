@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 // import stageFinishedSound from '../sounds/windowsXP.opus'
 import stageFinishedSound from '../assets/sounds/default.m4a'
 // import allStagesFinishedSound from '../sounds/windowsXpShutdown.m4a'
+import allWorkStagesFinishedSound from '../assets/sounds/ApplauseCheering.m4a'
 import allStagesFinishedSound from '../assets/sounds/ps1.m4a'
 
 import { getStagesInSeconds } from './getStages'
@@ -72,7 +73,11 @@ export class Pomodoro extends React.Component {
     const { stageCurrentIndex } = this.state
 
     if (stageCurrentIndex < 7) {
-      !this.props.muted && new Audio(stageFinishedSound).play()
+      if(stageCurrentIndex === 6){
+        !this.props.muted && new Audio(allWorkStagesFinishedSound).play()
+      } else {
+        !this.props.muted && new Audio(stageFinishedSound).play()
+      }
       const nextStageIndex = stageCurrentIndex + 1
       this.setState({ stageCurrentIndex: nextStageIndex })
     } else {
@@ -101,7 +106,6 @@ export class Pomodoro extends React.Component {
     )
   }
 }
-
 
 export default function PomodoroProvider(props) {
   const { handleTodoArchived } = useContext(ApiControlContext)

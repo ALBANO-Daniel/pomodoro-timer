@@ -28,10 +28,15 @@ function PomodoroChips({ index }) {
 export default PomodoroChips
 
 export const PomodoroChip = (props) => {
-  const { label, color, finished } = props
+  let { label, color, finished } = props
 
   const theme = useTheme()
   const mode = theme.palette.mode
+  
+  // handle green for dark mode
+  if ((color === 'green' && mode === 'dark')) {
+    color = 'lime'
+  }
 
   return finished ? (
     <Box color={color} sx={{ position: 'relative', opacity: '0.3' }}>
