@@ -30,7 +30,7 @@ for (const [key, value] of searchParams.entries()) {
 }
 
 
-
+const content = <a href="https://www.flaticon.com/fr/icones-gratuites/pomme" title="pomme icônes">Pomme icônes créées par Roundicons - Flaticon</a>
 
 // params ? (window.location.pathname = `${window.location.pathname}?${params}`) : null
 
