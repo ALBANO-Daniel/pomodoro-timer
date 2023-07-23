@@ -31,7 +31,7 @@ export default class ApiProvider extends Component {
   handleTodoArchived = (todo) => {
     console.log('archived todo: ')
     console.log(todo)
-    
+
     this.setState({
       todosArchived: [todo, ...this.state.todosArchived],
     })

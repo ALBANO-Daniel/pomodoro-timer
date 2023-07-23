@@ -14,11 +14,10 @@ function FeatureSwitchMenu({ handleVisibleFeature }) {
   const handleOpen = () => setOpenModal(true)
   const handleClose = () => setOpenModal(false)
 
-
   return (
     <Box sx={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
       <FeatureSwitchMenuModal openModal={openModal} handleClose={handleClose} handleOpen={handleOpen} />
-      
+
       <ButtonGroup variant="contained" color="success" aria-label="outlined primary button group">
         <Button onClick={() => handleClick('timer')} disabled={choosedFeature === 'timer'}>
           Pomodoro Timer
@@ -39,7 +38,6 @@ function FeatureSwitchMenu({ handleVisibleFeature }) {
           Profile Stats
         </Button>
       </ButtonGroup>
-      
     </Box>
   )
 }

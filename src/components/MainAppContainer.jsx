@@ -16,9 +16,9 @@ export const MainAppContainer = (props) => {
           bgcolor: 'background.paper',
           boxShadow: 1,
           borderRadius: 2,
-          p: [1,1,2],
-          pl: [1,1,1],
-          width: [400,400,500],
+          p: [1, 1, 2],
+          pl: [1, 1, 1],
+          width: [400, 400, 500],
           minWidth: 300,
           alignContent: 'center',
         }}

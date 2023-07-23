@@ -6,4 +6,3 @@ export const useTodosContext = () => React.useContext(TodosContext)
 //methods
 export const TodosControlContext = React.createContext()
 export const useTodosControlContext = () => React.useContext(TodosControlContext)
-

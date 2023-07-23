@@ -5,7 +5,7 @@ import { useTodosControlContext } from './todoContext'
 function TodoCreateForm() {
   const [newTodo, setNewTodo] = useState('')
   const { handleTodoSubmit } = useTodosControlContext()
- 
+
   const updateValue = (event) => {
     setNewTodo(event.target.value)
   }

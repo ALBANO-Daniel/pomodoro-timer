@@ -1,12 +1,12 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import Topbar from './components/Topbar'
-import { ColorModeContext, useMode } from './theme'
 import { useState } from 'react'
+import ApiProvider from './api/ApiProvider'
 import FeaturesMenu from './components/FeatureSwitchMenu'
+import Topbar from './components/Topbar'
 import PomodoroPage from './pages/PomodoroPage'
 import ProfilePage from './pages/ProfilePage'
-import ApiProvider from './api/ApiProvider'
 import TodoPage from './pages/TodoPage'
+import { ColorModeContext, useMode } from './theme'
 
 function App() {
   const [visibleFeature, setVisibleFeature] = useState('timer')

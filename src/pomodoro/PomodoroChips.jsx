@@ -1,11 +1,11 @@
 import { Box, Typography, useTheme } from '@mui/material'
 import React from 'react'
-import PomodoroIcon from '../assets/images/pomme.png'
-import PomodoroIconWhite from '../assets/images/pommeWhite.png'
 import PomodoroFinishedIcon from '../assets/images/appleEnd.png'
 import PomodoroFinishedIconWhite from '../assets/images/appleEndWhite.png'
+import PomodoroIcon from '../assets/images/pomme.png'
+import PomodoroIconWhite from '../assets/images/pommeWhite.png'
 
-function PomodoroChips({ index }) {
+export default function PomodoroChips({ index }) {
   return (
     <React.Fragment>
       <Box direction="row" display="flex" gap={2} paddingBottom={1}>
@@ -24,16 +24,14 @@ function PomodoroChips({ index }) {
   )
 }
 
-export default PomodoroChips
-
 export const PomodoroChip = (props) => {
   let { label, color, finished } = props
 
   const theme = useTheme()
   const mode = theme.palette.mode
 
-  // handle green for dark mode
-  if ((color === 'green' && mode === 'dark')) {
+  // handle color green for dark mode
+  if (color === 'green' && mode === 'dark') {
     color = 'lime'
   }
 

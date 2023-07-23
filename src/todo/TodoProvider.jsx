@@ -75,9 +75,7 @@ export class Todo extends Component {
   render() {
     return (
       <TodosContext.Provider value={this.state.todos}>
-        <TodosControlContext.Provider value={this.control}>
-          {this.props.children}
-        </TodosControlContext.Provider>
+        <TodosControlContext.Provider value={this.control}>{this.props.children}</TodosControlContext.Provider>
       </TodosContext.Provider>
     )
   }

@@ -1,10 +1,10 @@
-import { BottomNavigation, BottomNavigationAction } from '@mui/material'
 import { RestoreOutlined } from '@mui/icons-material'
+import { BottomNavigation, BottomNavigationAction } from '@mui/material'
 import { useState } from 'react'
 
 function Footer() {
   const [value, setValue] = useState('')
-  // WIP PROD 
+  // WIP PROD
   return (
     <BottomNavigation
       showLabels

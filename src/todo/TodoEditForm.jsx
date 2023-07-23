@@ -30,8 +30,8 @@ function TodoEditForm({ todo, handleEditForm }) {
         maxRows={4}
         value={text}
         onChange={handleChange}
-        InputLabelProps={{ style: { fontSize: [15,15,19] } }}
-        inputProps={{ style: { fontSize: [15,15,19] } }}
+        InputLabelProps={{ style: { fontSize: [15, 15, 19] } }}
+        inputProps={{ style: { fontSize: [15, 15, 19] } }}
         onKeyDown={(event) => {
           if (event.key === 'Enter') {
             handleClick()
