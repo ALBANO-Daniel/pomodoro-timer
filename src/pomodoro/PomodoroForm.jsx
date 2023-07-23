@@ -1,9 +1,13 @@
 import { Box } from '@mui/system'
-import { Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
-import MainAppHeaderSubheader from './MainAppHeaderSubheader'
+import { Button, Divider, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
+import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 import React from 'react'
+import { usePomodoroControl, useShouldShowTimer } from './pomodoroContext'
 
-function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
+function PomodoroForm({ pomodoroFinished }) {
+  const shouldShowTimer = useShouldShowTimer()
+  const pomodoroControl = usePomodoroControl()
+
   if (shouldShowTimer === false) {
     document.title = 'Pomodoro Timer'
   }
@@ -18,13 +22,15 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
           justifyContent: 'center',
         }}
       >
-        <form method="post" onSubmit={handleSubmit}>
+        <form method="post" onSubmit={pomodoroControl.handleSubmit}>
           <FormControl disabled={shouldShowTimer} sx={{ my: 1.5, ml: [0.5, 1.5] }}>
             <FormLabel id="workTime">Work periods</FormLabel>
             <RadioGroup size="small" aria-labelledby="choose work time" defaultValue={25} name="workTime">
               <FormControlLabel value="20" control={<Radio color="success" />} label="20min" />
               <FormControlLabel value="25" control={<Radio color="success" />} label="25min" />
               <FormControlLabel value="30" control={<Radio color="success" />} label="30min" />
+              <Divider />
+              <FormControlLabel value="0.1" control={<Radio color="success" />} label="test it!" />
             </RadioGroup>
           </FormControl>
 
@@ -34,6 +40,8 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
               <FormControlLabel value="5" control={<Radio color="success" />} label="5min" />
               <FormControlLabel value="7" control={<Radio color="success" />} label="7min" />
               <FormControlLabel value="10" control={<Radio color="success" />} label="10min" />
+              <Divider />
+              <FormControlLabel value="0.1" control={<Radio color="success" />} label="test it!" />
             </RadioGroup>
           </FormControl>
 
@@ -43,6 +51,8 @@ function PomodoroForm({ shouldShowTimer, pomodoroFinished, handleSubmit }) {
               <FormControlLabel value="15" control={<Radio color="success" />} label="15min" />
               <FormControlLabel value="20" control={<Radio color="success" />} label="20min" />
               <FormControlLabel value="25" control={<Radio color="success" />} label="25min" />
+              <Divider />
+              <FormControlLabel value="0.3" control={<Radio color="success" />} label="test it!" />
             </RadioGroup>
           </FormControl>
 

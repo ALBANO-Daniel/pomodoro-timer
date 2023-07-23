@@ -3,13 +3,12 @@ import { ColorModeContext } from '../theme'
 import { Box, Container, IconButton, Typography, useTheme } from '@mui/material'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
-import MusicOffIcon from '@mui/icons-material/MusicOff'
-import MusicNoteIcon from '@mui/icons-material/MusicNote'
+// import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
-import AppIcon from '../images/favicon2.gif'
+import AppIcon from '../assets/images/favicon.gif'
 
-const Topbar = ({ muted, handleMuted }) => {
+const Topbar = () => {
   const theme = useTheme()
   const colorMode = useContext(ColorModeContext)
 
@@ -19,7 +18,7 @@ const Topbar = ({ muted, handleMuted }) => {
         height: '70px',
         marginBottom: '30px',
         padding: 2,
-        bgcolor: ['neutral.dark', 'neutral.dark', 'transparent'],
+        bgcolor: ['transparent'],
         borderBottom: 4,
         borderColor: 'success.dark',
       }}
@@ -34,7 +33,6 @@ const Topbar = ({ muted, handleMuted }) => {
           <IconButton  onClick={colorMode.toggleColorMode}>
             {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon color='success' /> : <LightModeOutlinedIcon color='success' />}
           </IconButton>
-          <IconButton onClick={handleMuted}>{muted ? <MusicOffIcon color='success' /> : <MusicNoteIcon color='success' />}</IconButton>
           <IconButton>
             <SettingsOutlinedIcon color="disabled" />
           </IconButton>
