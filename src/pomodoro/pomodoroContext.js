@@ -15,3 +15,4 @@ export const useStageCurrentIndex = () => React.useContext(StageCurrentIndexCont
 //methods
 export const PomodoroControlContext = React.createContext()
 export const usePomodoroControl = () => React.useContext(PomodoroControlContext)
+

@@ -1,8 +1,8 @@
 import { Alert, Collapse, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
-import { usePomodoroControl } from './pomodoroContext'
 import AppleTree from '../assets/images/appleTree.png'
+import { usePomodoroControl } from './pomodoroContext'
 
 export function AllStagesFinishedAlert() {
   const [open, setOpen] = useState(true)
@@ -16,7 +16,7 @@ export function AllStagesFinishedAlert() {
           sx={{
             height: '90px',
             pt: 2,
-            px: [2,2,5],
+            px: [2, 2, 5],
             display: 'flex',
             gap: 1,
             alignContent: 'center',
@@ -28,13 +28,11 @@ export function AllStagesFinishedAlert() {
             pomodoroControl.handleAreAllStagesFinished()
           }}
         >
-          <Box
-            width="100%"
-            display="flex"
-            alignItems="center"
-          >
+          <Box width="100%" display="flex" alignItems="center">
             <img src={AppleTree} width="50px" height="50px" alt="tree with apple fruits" />
-            <Typography variant="h3" sx={{ paddingLeft: 2 }}>Finished, Well Done!</Typography>
+            <Typography variant="h3" sx={{ paddingLeft: 2 }}>
+              Finished, Well Done!
+            </Typography>
           </Box>
         </Alert>
       </Collapse>

@@ -1,9 +1,9 @@
 import { Box } from '@mui/system'
+import { MainAppContainer } from '../components/MainAppContainer'
 import PomodoroForm from '../pomodoro/PomodoroForm'
 import { AllStagesFinishedAlert } from './AllStagesFinishedAlert'
-import { MainAppContainer } from '../components/MainAppContainer'
 import { StageProgressIndicator } from './StageProgressIndicator'
-import { useAreAllStagesFinished, useShouldShowTimer, useIsStageFinished } from './pomodoroContext'
+import { useAreAllStagesFinished, useIsStageFinished, useShouldShowTimer } from './pomodoroContext'
 
 export function PomodoroView() {
   const areAllStagesFinished = useAreAllStagesFinished()

@@ -1,7 +1,7 @@
-import { Box } from '@mui/system'
 import { Button, Divider, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
-import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
+import { Box } from '@mui/system'
 import React from 'react'
+import MainAppHeaderSubheader from '../components/MainAppHeaderSubheader'
 import { usePomodoroControl, useShouldShowTimer } from './pomodoroContext'
 
 function PomodoroForm({ pomodoroFinished }) {

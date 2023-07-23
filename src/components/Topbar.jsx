@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import { ColorModeContext } from '../theme'
-import { Box, Container, IconButton, Typography, useTheme } from '@mui/material'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
+import { Box, Container, IconButton, Typography, useTheme } from '@mui/material'
+import { useContext } from 'react'
+import { ColorModeContext } from '../theme'
 // import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined'
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined'
@@ -23,15 +23,21 @@ const Topbar = () => {
         borderColor: 'success.dark',
       }}
     >
-      <Box display="flex" justifyContent="space-between" >
+      <Box display="flex" justifyContent="space-between">
         <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={1}>
           <img src={AppIcon} alt="logo" height="23px" />
-          <Typography paddingLeft={1} color='success.dark' variant='h4'>deani.dev</Typography>
+          <Typography paddingLeft={1} color="success.dark" variant="h4">
+            deani.dev
+          </Typography>
         </Box>
 
-        <Box display="flex" sx={{ color:'success.dark' }}>
-          <IconButton  onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === 'dark' ? <DarkModeOutlinedIcon color='success' /> : <LightModeOutlinedIcon color='success' />}
+        <Box display="flex" sx={{ color: 'success.dark' }}>
+          <IconButton onClick={colorMode.toggleColorMode}>
+            {theme.palette.mode === 'dark' ? (
+              <DarkModeOutlinedIcon color="success" />
+            ) : (
+              <LightModeOutlinedIcon color="success" />
+            )}
           </IconButton>
           <IconButton>
             <SettingsOutlinedIcon color="disabled" />

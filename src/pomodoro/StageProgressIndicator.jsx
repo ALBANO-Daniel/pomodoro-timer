@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import PomodoroChips from './PomodoroChips'
 import PomodoroTimer from './PomodoroTimer'
-import {  useStageCurrentIndex } from './pomodoroContext'
+import { useStageCurrentIndex } from './pomodoroContext'
 
 export function StageProgressIndicator() {
   const stageCurrentIndex = useStageCurrentIndex()
@@ -15,10 +15,7 @@ export function StageProgressIndicator() {
         </Typography>
         <PomodoroChips index={stageCurrentIndex} />
       </Box>
-      <PomodoroTimer
-        key={stageCurrentIndex}
-        index={stageCurrentIndex}
-      />
+      <PomodoroTimer key={stageCurrentIndex} index={stageCurrentIndex} />
     </Box>
   )
 }

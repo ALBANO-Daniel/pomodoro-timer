@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
-import stageFinishedSound from '../assets/sounds/default.m4a'
 import allWorkStagesFinishedSound from '../assets/sounds/ApplauseCheering.m4a'
+import stageFinishedSound from '../assets/sounds/default.m4a'
 import allStagesFinishedSound from '../assets/sounds/ps1.m4a'
 
+import { ApiControlContext } from '../api/apiContext'
 import { getStagesInSeconds } from './getStages'
 import {
-  ShouldShowTimerContext,
+  AreAllStagesFinishedContext,
   IsStageFinishedContext,
   PomodoroControlContext,
-  AreAllStagesFinishedContext,
+  ShouldShowTimerContext,
   StageCurrentIndexContext,
 } from './pomodoroContext'
-import { ApiControlContext } from '../api/apiContext'
 
 export class Pomodoro extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export class Pomodoro extends React.Component {
       getExpirationTimestampForCurrentStage: this.getExpirationTimestampForCurrentStage,
     }
   }
-  
+
   // values from Form into Obj
   handleSubmit = (event) => {
     event.preventDefault()
@@ -39,7 +39,7 @@ export class Pomodoro extends React.Component {
     const formDataJson = Object.fromEntries(formData.entries())
     this.handleTimerSettings(formDataJson)
   }
-  
+
   handleTimerSettings = (timerSettings) => {
     this.setState({
       timerSettings,
@@ -70,7 +70,7 @@ export class Pomodoro extends React.Component {
     const { stageCurrentIndex } = this.state
 
     if (stageCurrentIndex < 7) {
-      if(stageCurrentIndex === 6){
+      if (stageCurrentIndex === 6) {
         !this.props.muted && new Audio(allWorkStagesFinishedSound).play()
       } else {
         !this.props.muted && new Audio(stageFinishedSound).play()
@@ -107,10 +107,5 @@ export class Pomodoro extends React.Component {
 export default function PomodoroProvider(props) {
   const { handleTodoArchived } = useContext(ApiControlContext)
 
-
-  return (
-    <Pomodoro handleTodoArchived={handleTodoArchived}>
-      {props.children}
-    </Pomodoro>
-  )
+  return <Pomodoro handleTodoArchived={handleTodoArchived}>{props.children}</Pomodoro>
 }

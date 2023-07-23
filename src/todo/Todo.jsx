@@ -1,8 +1,8 @@
+import CheckBoxIcon from '@mui/icons-material/CheckBox'
+import CropSquareIcon from '@mui/icons-material/CropSquare'
 import { Box, Button, Paper, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import TodoEditForm from './TodoEditForm'
-import CropSquareIcon from '@mui/icons-material/CropSquare'
-import CheckBoxIcon from '@mui/icons-material/CheckBox'
 import { useTodosControlContext } from './todoContext'
 
 function Todo({ todo }) {
