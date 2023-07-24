@@ -19,6 +19,7 @@ function Footer() {
         component="footer"
         sx={{
           display: 'flex',
+          flexDirection: ['column-reverse','column-reverse', 'row'],
           width: '100%',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -26,12 +27,14 @@ function Footer() {
           mt: 'auto',
         }}
       >
-        <Box>© {year} Tupanetwork All rights reserved.</Box>
+        <Box sx={{ paddingBottom: [1,1,3], paddingTop: [0,0,2] }}>© {year} Tupanetwork All rights reserved.</Box>
         <Box
           sx={{
             display: 'flex',
             gap: 3,
-            fontSize: '19px',
+            fontSize: ['14px','14px','17px'],
+            // paddingTop: 1,
+            paddingBottom: 1,
           }}
         >
           <Link color="success.dark"  href="https://github.com/ALBANO-Daniel/pomodoro-timer" underline="hover" target='_blank' rel="noopener" >
