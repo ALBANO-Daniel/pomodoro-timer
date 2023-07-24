@@ -12,7 +12,6 @@ export const MainAppContainer = (props) => {
     >
       <Box
         sx={{
-          // bgcolor: ['neutral.dark','neutral.dark','background.paper'], // clock theme...
           bgcolor: 'background.paper',
           boxShadow: 1,
           borderRadius: 2,

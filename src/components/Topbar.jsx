@@ -25,9 +25,9 @@ const Topbar = () => {
     >
       <Box display="flex" justifyContent="space-between">
         <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={1}>
-          <img src={AppIcon} alt="logo" height="23px" />
-          <Typography paddingLeft={1} color="success.dark" variant="h4">
-            deani.dev
+          <img src={AppIcon} alt="logo" height="25px" />
+          <Typography paddingLeft={2} color="success" variant="h4">
+            Work Tools
           </Typography>
         </Box>
 

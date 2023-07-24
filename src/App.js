@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from '@mui/material'
+import { Container, CssBaseline, ThemeProvider } from '@mui/material'
 import { useState } from 'react'
 import ApiProvider from './api/ApiProvider'
 import FeaturesMenu from './components/FeatureSwitchMenu'
@@ -7,6 +7,7 @@ import PomodoroPage from './pages/PomodoroPage'
 import ProfilePage from './pages/ProfilePage'
 import TodoPage from './pages/TodoPage'
 import { ColorModeContext, useMode } from './theme'
+import Footer from './components/Footer'
 
 function App() {
   const [visibleFeature, setVisibleFeature] = useState('timer')
@@ -24,13 +25,14 @@ function App() {
         <ApiProvider>
           <div className="app">
             <Topbar />
-            <main className="content">
+            <Container component="main" className="content" sx={{ minHeight: 'calc(100vh - 200px)', paddingTop: 3 }} maxWidth="sm">
               <FeaturesMenu handleVisibleFeature={handleVisibleFeature} />
 
               {visibleFeature === 'timer' ? <PomodoroPage visible={true} /> : <PomodoroPage visible={false} />}
               {visibleFeature === 'todo' ? <TodoPage visible={true} /> : <TodoPage visible={false} />}
               {visibleFeature === 'profile' ? <ProfilePage visible={true} /> : <ProfilePage visible={false} />}
-            </main>
+            </Container>
+            <Footer />
           </div>
         </ApiProvider>
       </ThemeProvider>
