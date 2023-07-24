@@ -11,7 +11,7 @@ function Footer() {
         marginTop: '30px',
         padding: 2,
         backgroundColor: 'transparent',
-        borderTop: 4,
+        borderTop: 3,
         borderColor: 'success.dark',
       }}
     >

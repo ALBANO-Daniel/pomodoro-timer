@@ -19,12 +19,12 @@ const Topbar = () => {
         marginBottom: '30px',
         padding: 2,
         bgcolor: ['transparent'],
-        borderBottom: 4,
+        borderBottom: 3,
         borderColor: 'success.dark',
       }}
     >
       <Box display="flex" justifyContent="space-between">
-        <Box display="flex" borderRadius="3px" paddingLeft={1} paddingTop={1}>
+        <Box display="flex"  paddingLeft={1} paddingTop={1}>
           <img src={AppIcon} alt="logo" height="25px" />
           <Typography paddingLeft={2} color="success" variant="h4">
             Work Tools
