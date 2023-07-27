@@ -17,6 +17,11 @@ export class Todo extends Component {
     }
   }
 
+  get TodoList() {
+    // API GET 
+    return (null)
+  }
+ 
   handleTodoSubmit = (text) => {
     const date = new Date()
     const todoDate = date.getTime()
