@@ -15,6 +15,7 @@ export default class ApiProvider extends Component {
     super(props)
     this.state = {
       todosArchived: [{}],
+      todosInProgress: [{}],
       workTimesInMinutes: 0,
       pauseTimesInMinutes: 0,
       completedWorkTimes: 0,
@@ -23,18 +24,22 @@ export default class ApiProvider extends Component {
       completedPomodoros: 0,
     }
     this.control = {
-      handleTodoArchived: this.handleTodoArchived,
+      handleTodosArchived: this.handleTodoArchived,
       handlePomodoroArchived: this.handlePomodoroArchived,
     }
   }
 
-  handleTodoArchived = (todo) => {
-    console.log('archived todo: ')
-    console.log(todo)
-
+  updateTodosArchived = (todo) => {
+    // set on DBase
     this.setState({
       todosArchived: [todo, ...this.state.todosArchived],
     })
+  }
+  updateTodosInProgress = (todos) => {
+    todos.map((todo) => {  
+      return [todo, ...this.state.todos]
+    })
+    this.setState({ todosInProgress: todos })
   }
 
   handlePomodoroArchived = (time, index) => {
